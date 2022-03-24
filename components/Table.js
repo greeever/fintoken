@@ -3,6 +3,8 @@ import { Tab } from '@headlessui/react'
 import { Contract,ethers } from 'ethers'
 import KnotPool  from '../abis/KnotPool.json'
 import {erc20ABI, useAccount, useSigner} from 'wagmi'
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const token = '0xf459685b803cdb63d9230079159b0614f4f49dc4'
 const address = '0xe6402f8adc9dd5909602a25ea5c5b7d2528a62a2'
 const Knot_Address = '0xeD1cd612b81D878a03a5839BB0B57e5768062119'
@@ -19,7 +21,7 @@ const Table = () => {
       const [isAllowance, setAllowance] = useState('0');
     const [isPrice, setPrice] = useState('0')
     const [isKdStake, setKdStake] = useState('')
-    const [isTotalKd, setTotalKd] = useState()
+
     const [isUnstakeKd, setUnStakeKd] = useState()
 
 
@@ -38,17 +40,7 @@ const Table = () => {
             }
         }
 
-        async function ReadKnot () {
-            if (! accountData) return null
-            try {
-                let provider = await new ethers.providers.JsonRpcProvider('https://rpc-mumbai.matic.today')
-                let knot = await new  Contract(Knot_Address, KnotPool.abi, provider)
-                let tx  = await knot.TotalKdCoin()
-                setTotalKd(ethers.utils.formatEther(tx))
-            } catch (error) {
-                console.log('this is total error', error)
-            }
-        }
+        
 
         
 
@@ -71,10 +63,13 @@ const Table = () => {
             // if (_amount <= 0 && !accountData.address)  return null;
             try {
                 let knot = await new  Contract(Knot_Address, KnotPool.abi, signer);
-                const response = await knot.depositKdToken(_amount);
-                console.log(response); 
+                let response = await knot.depositKdToken(_amount);
+                let hash = response.hash
                 setKdStake('')
+                toast.success(`check transaction hash here https://etherscan.io/${hash}`)
+                console.log(response); 
             } catch (error) {
+                toast.error('Could not stake, please make sure yo have enough coins')
                 console.log('this is deposit error', error)
             }
             } 
@@ -82,10 +77,12 @@ const Table = () => {
             async function unStakeKd(_amount){
                 try {
                     let knot = await new  Contract(Knot_Address, KnotPool.abi, signer);
-                    const response = await knot.withdrawKdToken(_amount);
-                    console.log(response); 
+                    let response = await knot.withdrawKdToken(_amount);
+                    let hash = response.hash
+                    toast.success(`check transaction hash here https://etherscan.io/${hash}`)
                 setUnStakeKd('')
                 } catch (error) {
+                    toast.error('Could not unstake, please make sure yo have enough coins')
                     console.log('this is withdraw Kd error', error)
                 }
             }
@@ -94,7 +91,7 @@ const Table = () => {
 
     useEffect(() => {
         getBalance () 
-        ReadKnot()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[accountData])
 
     return (
@@ -183,12 +180,12 @@ const Table = () => {
 
         <div>
             <div className='flex justify-around my-8'>
-            <h1 className=''>Nexagon statistics </h1>
+            <h1 className=''>Lido statistics </h1>
             <p className='text-blue-400 underline cursor-pointer'>View on Etherscan</p>
             </div>
             <div className='flex justify-between items-center px-4 py-6 bg-purple-200  rounded-xl'>
                 <h2>Your Assets</h2>
-                <p>kd: {" "}{parseFloat(isTotalKd).toFixed(2) }</p>
+                <p>kd</p>
             </div>
         </div>
         </>
