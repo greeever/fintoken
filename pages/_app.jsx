@@ -4,9 +4,6 @@ import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { WalletLinkConnector } from "wagmi/connectors/walletLink";
 
-
-const infuraId = process.env.NEXT_PUBLIC_INFURA_ID;
-
 const chains = defaultL2Chains;
 
 
@@ -18,14 +15,8 @@ const connectors = ({ chainId }) => {
     new InjectedConnector({ chains }),
     new WalletConnectConnector({
       options: {
-        infuraId,
+        infuraId: "8abeafde689b4b7bbeca31ed130ed3c1",
         qrcode: true,
-      },
-    }),
-    new WalletLinkConnector({
-      options: {
-        appName: "NextJS-wagmi",
-        jsonRpcUrl: `${rpcUrl}/${infuraId}`,
       },
     }),
   ];

@@ -12,6 +12,8 @@ let Pool, tx, provider
     const [{ data: accountData }] = useAccount({
         fetchEns: true,
       })
+      const [{ data: signer }] = useSigner()
+    //   const provider = useProvider()
       
       
 
@@ -19,7 +21,7 @@ let Pool, tx, provider
         async function getBalance () {
             try {
                 provider = new ethers.providers.JsonRpcProvider('https://rpc-mumbai.matic.today')
-                Pool =  new  Contract(token, erc20ABI, provider);
+                Pool =  new  Contract(token, KnotPool, provider);
                 tx = await Pool.balanceOf(accountData.address)
                 console.log(tx)
                 setPrice(ethers.utils.formatEther(tx))
@@ -34,6 +36,7 @@ let Pool, tx, provider
 
     useEffect(() => {
         getBalance ()    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     return (
         <>
