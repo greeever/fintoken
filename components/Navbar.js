@@ -2,6 +2,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { useConnect, useAccount } from 'wagmi';
 
+
  const Navbar =() => {
     const [{ data, error}, connect] = useConnect()
     const [{ data: accountData }, disconnect] = useAccount({
@@ -32,7 +33,7 @@ import { useConnect, useAccount } from 'wagmi';
                   <button
             type="button"
             onClick={openModal}
-            className="px-4 py-2 text-sm  text-white font-semibold font-mono rounded-md bg-purple-500 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            className="px-4 py-2 text-sm  text-white font-semibold font-mono rounded-md bg-purple-700 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             Connect
           </button>
@@ -97,7 +98,7 @@ import { useConnect, useAccount } from 'wagmi';
                 <div className='flex flex-col'>
                     {data.connectors.map((connector) => (
                         <button
-                        className='p-2 bg-black mx-2 text-white rounded-xl my-3'
+                        className='p-2 bg-purple-700 mx-2 text-white rounded-xl my-3'
                         disabled={!connector.ready}
                         key={connector.id}
                         onClick={() => connect(connector)}
@@ -106,7 +107,7 @@ import { useConnect, useAccount } from 'wagmi';
                         {!connector.ready && ' (unsupported)'}
                         </button>
                     ))}
-
+                      <p className='py-3 text-left text-sm font-serif'>Please make sure you&apos;re on polygon mainnet</p>
                     {/* {error && <div>{error?.message ?? 'Failed to connect'}</div>} */}
                     </div>
                 </div>

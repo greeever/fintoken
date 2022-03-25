@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import { Provider, chain, defaultL2Chains } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
-import { WalletLinkConnector } from "wagmi/connectors/walletLink";
+// import { WalletLinkConnector } from "wagmi/connectors/walletLink";
 
 const chains = defaultL2Chains;
 
