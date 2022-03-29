@@ -5,8 +5,8 @@ import KnotPool  from '../abis/KnotPool.json'
 import {erc20ABI, useAccount, useSigner} from 'wagmi'
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const token = '0xf459685b803cdb63d9230079159b0614f4f49dc4'
-const Knot_Address = '0xeD1cd612b81D878a03a5839BB0B57e5768062119'
+const token = '0xc2132d05d31c914a87c6611c10748aeb04b58e8f'
+const Knot_Address = '0xc9ca6230302293E8b24971EF1BCD7F0C69c1d290'
 
 const Table = () => {
 
@@ -24,7 +24,7 @@ const Table = () => {
 
 
         async function getBalance () {
-            if (! accountData) return null
+           
             try {
                 let provider = new ethers.providers.JsonRpcProvider('https://rpc-mumbai.matic.today')
                 let Kd =  new  Contract(token, erc20ABI, provider);
@@ -92,6 +92,7 @@ const Table = () => {
 
 
     useEffect(() => {
+        if (! accountData && isPrice) return null
         getBalance () 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[accountData])

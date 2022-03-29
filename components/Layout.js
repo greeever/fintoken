@@ -3,7 +3,7 @@ import {useAccount} from 'wagmi'
 import { Contract,ethers } from 'ethers'
 
 import KnotPool  from '../abis/KnotPool.json'
-const Knot_Address = '0xeD1cd612b81D878a03a5839BB0B57e5768062119'
+const Knot_Address = '0xc9ca6230302293E8b24971EF1BCD7F0C69c1d290'
 import Table from "./Table";
 
  const Layout =() => {
