@@ -1435,10 +1435,10 @@
     "@json-rpc-tools/types" "^1.7.6"
     "@pedrouid/environment" "^1.0.1"
 
-"@makerdao/multicall@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@makerdao/multicall/-/multicall-0.12.0.tgz#490cb2698c8748b132bfdf59c79d7ef2598880b1"
-  integrity sha512-ARyv5EFqiaRegm1axPcDsOboBv8nCV6wDbPk9ODk5I1vM9IIcDOhw2DgPyW4i1+3ahrDTyuxPPy36Jm8My+LdA==
+"@makerdao/multicall@0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@makerdao/multicall/-/multicall-0.11.0.tgz#690f0fc85f0ca0d430263034df6956b3ad71cbf7"
+  integrity sha512-qr5Isrw42z3MAxqn3vcb2z56/RmecZ+cC59hTbTrBrPwCOVpTRC8bD9trh6Q0HD2P9sXnbMa8PAJDaUyjaGiPg==
   dependencies:
     "@babel/runtime" "^7.7.4"
     cross-fetch "^3.0.4"
