@@ -34,7 +34,7 @@ export default function Header({ address, onConnect }) {
         Whitelisted? {isWhitelisted ? "Yes" : "No"}
         </p>
       */}
-        <a display="inline-block" href="https://lid.sh" m="0px">
+        <a href="https://lid.sh">
           <img
             src="/logo-lid.png"
             alt="Lid Logo"

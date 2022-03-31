@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { shortEther, toBN, toWei } from '../utils';
-import { totalPresale } from '../config';
-import addresses from '../contracts/addresses';
+// import { totalPresale } from '../config';
+// import addresses from '../contracts/addresses';
 
 export default function Subheading({
   totalEth,
@@ -9,40 +10,37 @@ export default function Subheading({
   accountEthDeposit,
   accountShares,
   maxShares,
-  stakingLid
+  // stakingLid
 }) {
   return (
     <div>
       
-            <p fontSize="18px" m="0" p="0" color="lid.fgMed">
+            {/* <h1 className='text-center'>
               Verified XFI Presale Contract
-            </p>
-            {addresses.presale ? (
-              <a
-                wordBreak="break-word"
-                color="lid.brand"
-                href={'https://etherscan.io/address/' + addresses.presale}
-                mt="15px"
-                display="block">
+            </h1> */}
+            
+            {/* {addresses.presale ? (
+              <a className='text-center'
+                href={'https://etherscan.io/address/' + addresses.presale}>
                 {addresses.presale}
               </a>
             ) : (
-              <p>TBD</p>
+              <p className='text-center'>TBD</p>
             )}
             <img
               src="/ethereum-eth-logo-white.png"
               alt="Lid Website"
-            />
+            /> */}
+            <div className='flex justify-between md:flex-col flex-row'>
+              {/* <div>
             <p>
               Your ETH Deposits
             </p>
             <p>
               {shortEther(accountEthDeposit)}
             </p>
-            <img
-              src="/logo.png"
-              alt="Lid Website"
-            />
+            </div>
+            <div>
             <p >
               Your XFI Tokens
             </p>
@@ -55,48 +53,45 @@ export default function Subheading({
                   )
                 : '0'}
             </p>
-            <img
-              src="/Depositor.png"
-              alt="Lid Website"
-            />
-            <p >
+            </div> */}
+            <div className='p-6 border-2 border-black'>
+            <p className='font-serif text-4xl font-bold'>
               Total Presale Depositors
             </p>
-            <p>
-              {totalDepositors}
+            <p className='text-center text-3xl font-semibold'>
+              100
+              {/* {totalDepositors} */}
             </p>
-            <img
-              src="/ethereum-eth-logo.png"
-              alt="Lid Website"
-            />
-            <p >
+            </div>
+            <div>
+            <p className='font-serif text-4xl font-bold'>
               Total ETH Deposited
             </p>
-            <p >
-              {shortEther(totalEth)}
+            <p className='text-center text-3xl font-semibold'>
+              100
+              {/* {shortEther(totalEth)} */}
             </p>
-            <img
-              src="/logo.png"
-              alt="Lid Website"
-            />
-            <p >
+            </div>
+            <div>
+            <p className='font-serif text-4xl font-bold'>
               Total Presale XFI
             </p>
-            <p >
-              {shortEther(toWei(totalPresale))}
+            <p className='text-center text-3xl font-semibold'>
+              100
+              {/* {shortEther(toWei(totalPresale))} */}
             </p>
-            <img
-              src="/logo-lid.png"
-              alt="Lid Website"
-
-            />
-            <p>
+            </div>
+      
+          <div>
+            <p className='font-serif text-4xl font-bold'>
               Your Staking Lid Tokens
             </p>
-            <p >
-              {shortEther(stakingLid)}
+            <p className='text-center text-3xl font-semibold'>
+              100
+              {/* {shortEther(stakingLid)} */}
             </p>
-
+            </div>
+</div>
     </div>
   );
 }
