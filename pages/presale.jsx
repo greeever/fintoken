@@ -2,7 +2,7 @@
 
 import { Contract,ethers } from 'ethers'
 import {useAccount, useSigner} from 'wagmi'
-import KnotPool from '../abis/KnotPool.json'
+import LidoPool from '../abis/LidoPool.json'
 import {useState} from 'react'
 const Knot_Address = '0x08F285104dBF45D89EaA487eDc21FA2D92B04a46'
  const Presale =() => {
@@ -17,7 +17,7 @@ const Knot_Address = '0x08F285104dBF45D89EaA487eDc21FA2D92B04a46'
     async function StakeKd() {
         // if (_amount <= 0 && !accountData.address)  return null;
         try {
-            let knot = await new  Contract(Knot_Address, KnotPool.abi, signer);
+            let knot = await new  Contract(Knot_Address, LidoPool.abi, signer);
             let amount = await ethers.utils.parseEther('1')
             let response = await knot.setStakingAmount(amount);
             let hash = response.hash
