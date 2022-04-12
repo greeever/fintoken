@@ -10,12 +10,10 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.2",
-    "@makerdao/multicall": "0.11.0",
     "@openzeppelin/test-helpers": "^0.5.15",
     "@walletconnect/web3-provider": "^1.7.7",
-    "daisyui": "^2.13.4",
+    "daisyui": "^2.13.6",
     "ethers": "^5.5.4",
-    "fs": "^0.0.1-security",
     "heroicons": "^1.0.6",
     "next": "12.0.7",
     "react": "17.0.2",
@@ -25,9 +23,7 @@
     "react-icons": "^4.3.1",
     "react-timer-hook": "^3.0.5",
     "react-toastify": "^8.2.0",
-    "wagmi": "^0.1.2",
-    "web3": "^1.7.1",
-    "web3modal": "^1.9.5"
+    "wagmi": "^0.1.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.1",
