@@ -11,20 +11,6 @@ const token = '0xEe81Bde5cf32730b6627f61096fb6Cc07E0A962A'
 const Knot_Address = '0x08F285104dBF45D89EaA487eDc21FA2D92B04a46'
 let provider = new ethers.providers.JsonRpcProvider('https://rpc-mainnet.maticvigil.com/')
 
-
-const Alert = ({hash, error, success}) => {
-
-
-    return(
-        <>
-        <div>
-            
-        </div>
-        </>
-    )
-
-}
-
 const Table = () => {
 
     const [{ data: accountData }] = useAccount({
@@ -37,18 +23,12 @@ const Table = () => {
       const [isAllowance, setAllowance] = useState('');
       const [isPrice, setPrice] = useState('0')
     const [isKdStake, setKdStake] = useState('')
-    const [isBalance, setBalance] = useState('')
+    const [isBalance, setBalance] = useState('0.00')
     const [isPending, setPending] = useState(0)
     const [isLoading, setLoading] = useState(false)
+    const [isSux, setSux] = useState(false)
+    const [isShow, setShow] = useState(false)
 
-    async function getit() {
-        try {
-                
-            let Kd =  new  Contract(IdoAddress, Ido.abi, provider);
-        } catch (error) {
-            console.log('this is an eroor for allowance', error)
-        }
-    }
     async function pend() {
         try {
                 
@@ -89,17 +69,17 @@ const Table = () => {
             if(!accountData.address) return null;
             try {
                 setLoading(true)
-                // let provider = await new ethers.providers.JsonRpcProvider('https://rpc-mumbai.matic.today')
-                // let signer = await provider.getSigner(accountData)
                 let Kd = await new  Contract(token, erc20ABI, signer);
-                // let max = ethers.constants.MaxUint256
                 let amount = await ethers.utils.parseEther('99999999999')
                 console.log(amount)
                 const response = await Kd.approve(Knot_Address, amount);
+                hash = response.hash
                 setLoading(false)
+                toast.success('Transaction successful')
                 console.log('this is approve', response);
             } catch (error) {
                 setLoading(false)
+                toast.error('Could not Approve')
                 console.log('this is approve error', error)
             }
         }
@@ -111,10 +91,10 @@ const Table = () => {
                 let knot = await new  Contract(Knot_Address, LidoPool.abi, signer);
                 let amount = ethers.utils.parseEther(isKdStake.toString());
                 let response = await knot.depositKdToken(amount);
-                let hash = response.hash
+                 hash = response.hash
                 setKdStake('')
                 setLoading(false)
-                toast.success(`check transaction hash here https://etherscan.io/${hash}`)
+                toast.success('Transaction successful')
                 console.log(response); 
             } catch (error) {
                 setLoading(false)
@@ -130,10 +110,14 @@ const Table = () => {
                     let response = await knot.withdrawKdToken();
                     let hash = response.hash
                     setLoading(false)
-                    toast.success(`check transaction hash here https://etherscan.io/${hash}`)
+                    setSux(true)
+                    setShow(true)
+                    toast.success('Transaction successful')
                 setUnStakeKd('')
                 } catch (error) {
                     setLoading(false)
+                    setSux(true)
+                    setShow(true)
                     toast.error('Could not unstake, please deposit first')
                     console.log('this is withdraw Kd error', error)
                 }
@@ -159,13 +143,20 @@ const Table = () => {
               const estimatedValue = calcaPercent();
 
     useEffect(() => {
-        // if (! accountData && isPrice) return null
-        getit()
+        if (! accountData && isBalance) return null
         getBalance () 
-        getAllowance()
-        pend()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[accountData])
+    useEffect(() => {
+        pend () 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[accountData])
+    useEffect(() => {
+        if (! accountData ) return null
+        getAllowance()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[accountData])
+
 
         
     return (
@@ -222,18 +213,26 @@ const Table = () => {
                                 </form>
                                  ) :
                                  ( <div className=''>
-                                 <button disabled={isLoading} onClick={approveLido} className='font-semibold text-xl text-white text-center my-10 mx-6 py-3 px-5 bg-purple-600 rounded-lg  w-2/3 md:w-3/6'>{isLoading ? 'Loading...' : 'Approve'}</button>
-                                 <p className='text-red text-base'>Only approve once, if no change please refresh page</p>
+                                 <button disabled={isLoading} onClick={approveLido} className='font-semibold text-xl text-white text-center mt-10 mb-6 mx-6 py-3 px-5 bg-purple-600 rounded-lg  w-2/3 md:w-3/6'>{isLoading ? 'Loading...' : 'Approve'}</button>
+                                 <p className='text-red-200 text-base pb-2'>Only approve once, if no change please refresh page</p>
                                  </div>
                                  )}
                                 <div className=''>
-                                <div className='flex items-center justify-between py-4 px-4'>
+                                <div className='flex items-center justify-between py-2 px-4'>
                                     <p className='text-lg font-sans font-normal text-white'>You&apos;ll receive:</p>
                                     <p className='text-sm font-sans font-light text-white'>{estimatedValue}</p>
                                 </div>
-                                <div className='flex items-center justify-between py-4 px-4'>
+                                <div className='flex items-center justify-between py-2 px-4'>
                                     <p className='text-lg font-sans font-normal text-white'>Liquidity Mining Apy:</p>
                                     <p className='text-sm font-sans font-light text-white'>35%</p>
+                                </div>
+                                <div className='flex items-center justify-between py-2 px-4'>
+                                    <p className='text-lg font-sans font-normal text-white'>No of Stakers:</p>
+                                    <p className='text-sm font-sans font-light text-white'>264</p>
+                                </div>
+                                <div className='flex items-center justify-between py-2 px-4'>
+                                    <p className='text-lg font-sans font-normal text-white'>Total Staked:</p>
+                                    <p className='text-sm font-sans font-light text-white'>5568129.8083 MATIC</p>
                                 </div>
                             </div>
                         </div>
@@ -253,7 +252,7 @@ const Table = () => {
             <div className='flex justify-around items-center my-8'>
             <h1 className='font-serif text-semibold text-white'>Lido statistics :</h1>
             <a target="_blank" href="https://etherscan.io/token/0x9ee91F9f426fA633d227f7a9b000E28b9dfd8599" rel="noopener noreferrer" className=' underline cursor-pointer'>
-                <p className='text-purple-500 underline'>View on Etherscan</p>
+                <p className='text-purple-500 underline'>View on polygonscan</p>
                 </a>
             </div>
             <div className='flex justify-between items-center px-4 py-6  rounded-xl '>

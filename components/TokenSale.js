@@ -45,7 +45,7 @@ const TokenSale = () => {
             <div className='mx-auto py-3 border-2 border-purple-600 bg-gray-500 shadow-xl rounded-xl'>
                 <div className='flex items-center justify-between py-4 px-4'>
                     <p className='text-lg font-sans font-normal text-white'>Rate:</p>
-                    <p className='text-sm font-sans font-light text-white'>1 MATIC/ 14 LIFI</p>
+                    <p className='text-sm font-sans font-light text-white'>1 MATIC/ 25 LIFI</p>
                 </div>
                 <div className='flex items-center justify-between pb-4 px-4'>
                     <p className='text-lg font-sans font-normal text-white'>Total:</p>
@@ -53,8 +53,9 @@ const TokenSale = () => {
                 </div>
                 <div className='flex items-center justify-between pb-4 px-4'>
                     <p className='text-lg font-sans font-normal text-white'>Contract:</p>
-                    <p>{isKdStake}</p>
-                    <a href='https://mumbai.polygonscan.com/address/0xEe81Bde5cf32730b6627f61096fb6Cc07E0A962A' rel="noopener noreferrer" className='text-lg font-mono underline text-purple-500'>Etherscan</a>
+                    <a target="_blank" href="https://polygonscan.com/token/0xEe81Bde5cf32730b6627f61096fb6Cc07E0A962A" rel="noopener noreferrer" className=' underline cursor-pointer'>
+                    <p className='text-purple-500 underline'>View on polyscan</p>
+                         </a>
                 </div>
 
                 
