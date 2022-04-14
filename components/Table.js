@@ -252,7 +252,7 @@ const Table = () => {
             <div className='flex justify-around items-center my-8'>
             <h1 className='font-serif text-semibold text-white'>Lido statistics :</h1>
             <a target="_blank" href="https://etherscan.io/token/0x9ee91F9f426fA633d227f7a9b000E28b9dfd8599" rel="noopener noreferrer" className=' underline cursor-pointer'>
-                <p className='text-purple-500 underline'>View on polygonscan</p>
+                <p className='text-purple-500 underline'>View on Etherscan</p>
                 </a>
             </div>
             <div className='flex justify-between items-center px-4 py-6  rounded-xl '>

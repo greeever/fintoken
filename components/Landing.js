@@ -12,7 +12,7 @@ import { useState } from "react";
     return (
         <>
             <div className="flex flex-col justify-between items-center mx-auto py-8 my-8">
-              <h1 className=" text-4xl md:text-8xl font-serif text-left leading-10 text-white">Lido Network is a decentralized crypto Staking and Yield farming protocol on Polygon-Matic chain </h1>
+              <h1 className=" text-4xl md:text-8xl font-serif text-left leading-10 text-white">Lido Network is a decentralized crypto Staking and Yield farming Incentitve protocol on Polygon-Matic chain </h1>
             <img src="savings.svg" />
            
             </div>
@@ -33,7 +33,7 @@ import { useState } from "react";
                 
                 </div>
                 {first && 
-            <p className=" text-lg font-semibold font-sans pt-6 pb-3 ">Lido for Polygon is a liquid staking solution for MATIC backed by industry-leading staking providers. Lido lets users earn MATIC staking rewards without needing to maintain infrastructure and enables them to trade staked positions, as well as participate in on-chain decentralized finance with their staked assets. Lido for Polygon gives you</p>
+            <p className=" text-lg font-semibold font-sans pt-6 pb-3 ">Lido for Polygon is a liquid staking solution for MATIC backed by industry-leading staking providers. Lido lets users earn MATIC staking rewards without needing to maintain infrastructure and enables them to trade staked positions, as well as participate in on-chain decentralized finance with their staked assets.</p>
         }
             </div>
             <div className="mt-4  max-w-3xl mx-auto border-2 bg-purple-300 py-5 px-8 shadow-xl rounded-lg">
@@ -52,7 +52,7 @@ import { useState } from "react";
                 
                 </div>
                 {second && 
-            <p className=" text-lg font-semibold font-sans pt-6 pb-3">When staking with Lido for Polygon, users start mining rewars tokens as soon as they submit MATIC. Lido will calculate the current stMATIC/MATIC ratio and send the correct amount to the user. MATIC tokens are then delegated across Polygon validators that are part of Lido for Polygon.</p>
+            <p className=" text-lg font-semibold font-sans pt-6 pb-3">When staking with Lido for Polygon, users start mining rewars tokens immediately. Lido will calculate the current ratio and send the correct amount to the user. MATIC tokens are then delegated across Polygon validators that are part of Lido for Polygon.</p>
         }
             </div>
             <div className="mt-4 mb-6  max-w-3xl mx-auto border-2 bg-purple-300 py-5 px-8 shadow-xl rounded-lg">
