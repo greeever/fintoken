@@ -76,7 +76,7 @@ import { useState } from "react";
             </div>
             <div className="mt-4 mb-6  max-w-3xl mx-auto border-2 bg-purple-300 py-5 px-8 shadow-xl rounded-lg">
                 <div className="flex justify-center items-center">
-                <h2 className="font-sans font-normal text-white">How long after requesting withdraw can I claim $LiFi?</h2>
+                <h2 className="font-sans font-normal text-white">How long after requesting withdraw can I claim $LDN?</h2>
                 <button onClick={(() => {setFouth(!fouth)})}>{third ?
                  (<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                  <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />

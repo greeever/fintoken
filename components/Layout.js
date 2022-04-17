@@ -12,7 +12,7 @@ const Layout =() => {
              <div className="mt-24 max-w-3xl mx-auto">
                 <div className="text-center mb-6">
                     <h1 className="font-extrabold font-serif text-5xl my-4 text-white">Lido for polygon</h1>
-                    <p className="font-sans text-lg font-semibold py-4 text-white">You buy $LiFi. We farm in DeFi projects. You get rewards.</p>      
+                    <p className="font-sans text-lg font-semibold py-4 text-white">You buy $LDN. We farm in DeFi projects. You get rewards.</p>      
 
                 </div>
                 <div className='py-4'>

@@ -35,7 +35,7 @@ import { useConnect, useAccount } from 'wagmi';
             onClick={openModal}
             className="px-4 py-2 text-sm  text-white font-semibold font-mono rounded-md bg-purple-700 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
-            Buy $LiFI
+            Buy $LDN
           </button>
                   }
                 {!accountData ? (

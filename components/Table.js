@@ -164,8 +164,8 @@ const Table = () => {
         <div className='my-8'>
         <div>
                                     <h1 className='text-left font-bold font-sans text-3xl my-4 text-white'>Staking Overview</h1>
-                                    <p className='font-mono font-xl text-left font-semibold pt-4 text-white'>Stake your $LIFI to gain access to USDC Yield Pool while Earning staking rewards on your $LIFI.
-                                         The more $LIFI you lockup, the more USDC you can deposit to earn passive income</p>
+                                    <p className='font-mono font-xl text-left font-semibold pt-4 text-white'>Stake your $LDN to gain access to USDC Yield Pool while Earning staking rewards on your $LDN.
+                                         The more $LDN you lockup, the more USDC you can deposit to earn passive income</p>
                                 </div>
             <Tab.Group>
                 <Tab.List className="flex justify-around items-center  py-4  my-5 rounded-xl h-16 bg-gray-500">

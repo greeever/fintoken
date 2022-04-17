@@ -45,11 +45,11 @@ const TokenSale = () => {
             <div className='mx-auto py-3 border-2 border-purple-600 bg-gray-500 shadow-xl rounded-xl'>
                 <div className='flex items-center justify-between py-4 px-4'>
                     <p className='text-lg font-sans font-normal text-white'>Rate:</p>
-                    <p className='text-sm font-sans font-light text-white'>1 MATIC/ 25 LIFI</p>
+                    <p className='text-sm font-sans font-light text-white'>1 MATIC/ 25 LDN</p>
                 </div>
                 <div className='flex items-center justify-between pb-4 px-4'>
                     <p className='text-lg font-sans font-normal text-white'>Total:</p>
-                    <p className='text-sm font-sans font-light text-white'>500M $LiFi</p>
+                    <p className='text-sm font-sans font-light text-white'>500M $LDN</p>
                 </div>
                 <div className='flex items-center justify-between pb-4 px-4'>
                     <p className='text-lg font-sans font-normal text-white'>Contract:</p>
@@ -72,10 +72,12 @@ const TokenSale = () => {
                                 
                                 </div >
                                 <div className='flex justify-center items-center'>
-                                <button disabled={isLoading} type='submit'  className='font-semibold text-xl text-white my-10 mx-6 py-3 px-5 bg-purple-600 rounded-lg  w-2/3 md:w-3/6'>{isLoading ? 'Loading...' : 'Buy $LiFi'}</button>
+                                <button disabled={isLoading} type='submit'  className='font-semibold text-xl text-white my-10 mx-6 py-3 px-5 bg-purple-600 rounded-lg  w-2/3 md:w-3/6'>{isLoading ? 'Loading...' : 'Buy $LDN'}</button>
                                 </div>
                                
                                 </form>
+
+                
         </div>
         </div>          
         </>
