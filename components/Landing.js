@@ -51,19 +51,19 @@ const Landing = () => {
 					We have developed an investment platform that allow users to gain from special NFT tokens, the value of which depends on the performance of the NFT e.g Bored Ape NFT
                     </p>
                 </div>
-				<Link href='/presale'>
+				{/* <Link href='/presale'>
                 <div className="mt-12 justify-center items-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex">
 				    <button className="flex items-center space-x-2  px-10 py-3.5 w-full bg-indigo-600 text-white text-center rounded-md shadow-md sm:w-auto">
 					<p>Enter Presale</p>
 					  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
   <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
 </svg>
-                    </button>
+                    </button> */}
                     {/* <a href="/" className="px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-indigo-600 hover:shadow block sm:w-auto border-gray-300 dark:border-gray-600">
 					Enter
                     </a> */}
-                </div>
-				</Link>
+                {/* </div>
+				</Link> */}
             </section>
 			
 			<CdTimerComp />

@@ -2,7 +2,7 @@ import { useAccount, useBalance } from "wagmi";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 import Layout from '../components/Layout'
 import Landing from '../components/Landing'
 // toast.configure()
@@ -20,7 +20,7 @@ const Home = () => {
      <div className="w-11/12 mx-auto">
          <Navbar className='fixed top-0 pb-10' />
     {accountData ? (<Layout />): (<Landing />)}    
-       <Footer className="" />
+       {/* <Footer className="" /> */}
       
  
       <ToastContainer

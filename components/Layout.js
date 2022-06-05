@@ -6,7 +6,7 @@ import { Tab } from '@headlessui/react'
 import { CopyToClipboard } from "react-copy-to-clipboard";
 // import CdTimerComp from "./CdTimerComp";
 import Presale from '../abi/Presale.json'
-import TokenSale from './TokenSale';
+
 
 const IdoAddress = '0xBB8F9a81E652AC2adF8731667Dda3F232b7cb789';
 //token 0x3b118415e2E261ea1A62C20eA7f1118fd47FAfB2
@@ -70,7 +70,7 @@ const Layout = () => {
         }
     },[accountData])
 
-    texx = `https://chase-chi.vercel.app/presale/#/${accountData.address}`
+    texx = `https://chasefinance.io#/${accountData.address}`
     // useEffect(()=>{
 
     //     try {
@@ -185,9 +185,9 @@ const Layout = () => {
                     <div className=" w-11/12 bg-gray-100 md:max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800 ">
                         <div className='text-center pt-8'>
                             <p className='py-3 text-gray-800 dark:text-gray-100'> Deposit ETH for Chase</p>
-                            <p className='py-3 text-gray-800 dark:text-gray-100'>minimum 0.01 BNB, Max 10,000 BNB</p>
+                            <p className='py-3 text-gray-800 dark:text-gray-100'>Min 0.01 BNB / Max 10,000 BNB</p>
                             <div className='flex justify-around items-center text-gray-800 dark:text-gray-100 border-b border-gray-300 dark:border-gray-600 w-10/12 mx-auto'>
-                            <p className='py-3 text-gray-800 dark:text-gray-100'>Estimated Token:</p> <p>{isAmount}</p>
+                            {/* <p className='py-3 text-gray-800 dark:text-gray-100'>Estimated Token:</p> <p>{isAmount}</p> */}
                             </div>
                            <form className='w-full md:w-3/5 dark:text-gray-100 py-4 mx-auto'
                             onSubmit={(e) =>
@@ -260,7 +260,7 @@ const Layout = () => {
             <div className="py-4 md:pl-8 text-center md:text-left flex flex-col items-center justify-center">
                 <h1 className='py-3 text-gray-800 dark:text-gray-100'>Referral Code</h1>
                 <p className='py-3 text-gray-800 dark:text-gray-100'>5% token reward when anyone deposit with your link</p>
-                <p className='break-all  py-3 px-3 text-gray-800 dark:text-gray-100'>https://chase-chi.vercel.app/presale/#/{truncateAddress(accountData.address)}
+                <p className='break-all  py-3 px-3 text-gray-800 dark:text-gray-100'>https://chasefinance.io#/{truncateAddress(accountData.address)}
                {accountData && 
                 <CopyToClipboard
                     text={texx}
@@ -288,14 +288,14 @@ const Layout = () => {
         <div className=" w-11/12 mb-4 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800 ">
                 <div className="py-4">
 
-                    <div className="flex  justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
+                    {/* <div className="flex  justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
                         <div className=''>
                         <p>Your referral reward:</p>
                         </div>     
                         <p>
                             {isReferralReward}
                             </p>
-                    </div>
+                    </div> */}
                     <div className="flex  justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
                         <div className=''>
                         <p>Your Referral Earned :</p>
@@ -306,9 +306,6 @@ const Layout = () => {
                     </div>
                 </div>
             </div>
-        
-
-        <TokenSale />
         </>
     );
 }
