@@ -203,7 +203,9 @@ import { ethers, utils } from 'ethers';
                       <button onClick={disconnect} className='mb-4 hover:bg-black hover:text-white  text-black bg-inherit border border-gray-600  p-2 rounded-lg w-full'>Disconnect</button>
                   
                
-                    <p className='text-black text-center font-serif font-semibold mx-auto'>{chainId == 80001? 'Polygon': 'Wrong Network' }</p>
+                    <p className='text-black text-center font-serif font-semibold mx-auto'>{chainId 
+                    // == 80001? 'Polygon': 'Wrong Network' 
+                    }</p>
                     <p className='text-black text-center font-serif font-semibold mx-auto'>Balance: {shortNumber(balance)}</p>
                   </div>
                      }
