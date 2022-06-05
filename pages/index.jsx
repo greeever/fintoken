@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useAccount, useBalance } from "wagmi";
+import { useAccount } from "wagmi";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/Navbar'
@@ -18,14 +18,7 @@ const Home = () => {
   // LidoPool deployed to: 0x08F285104dBF45D89EaA487eDc21FA2D92B04a46
   return (
     <>
-    <Head>
-    <title>Lido</title>
-        <meta name="description" content="Lido Polygon Pool" />
-        <link rel="icon" href="/polygon.svg" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Ramaraja&display=swap" rel="stylesheet" />
-    </Head>
+   
      <div className="w-11/12 mx-auto">
          <Navbar className='fixed top-0 pb-10' />
     {accountData ? (<Layout />): (<Landing />)}    
