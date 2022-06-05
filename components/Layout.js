@@ -6,6 +6,7 @@ import { Tab } from '@headlessui/react'
 import { CopyToClipboard } from "react-copy-to-clipboard";
 // import CdTimerComp from "./CdTimerComp";
 import Presale from '../abi/Presale.json'
+import TokenSale from './TokenSale';
 
 const IdoAddress = '0xBB8F9a81E652AC2adF8731667Dda3F232b7cb789';
 //token 0x3b118415e2E261ea1A62C20eA7f1118fd47FAfB2
@@ -35,6 +36,7 @@ const Layout = () => {
         fetchEns: true,
       })
       const [{ data: signer }] = useSigner()
+     
 
     const init = async () => {
         try {
@@ -305,6 +307,8 @@ const Layout = () => {
                 </div>
             </div>
         
+
+        <TokenSale />
         </>
     );
 }

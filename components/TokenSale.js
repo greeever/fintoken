@@ -1,18 +1,18 @@
 import { useState} from 'react'
 import { Contract,ethers } from 'ethers'
-import Ido  from '../abis/Ido.json'
+import Presale  from '../abi/Presale.json'
 import {useAccount, useSigner} from 'wagmi'
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const IdoAddress = '0x5015D2ed2a861d1FDf66505Bdd4aAD7CE34B646e'
-
+const IdoAddress = '0xBB8F9a81E652AC2adF8731667Dda3F232b7cb789';
+import { useRouter } from 'next/router'
 const TokenSale = () => {
     
     const [isPrice, setPrice] = useState('0')
     const [isKdStake, setKdStake] = useState()
     const [isLoading, setLoading] = useState(false)
 
-
+    const { asPath } = useRouter();
     const [{ data: accountData }] = useAccount({
         fetchEns: true,
       })
@@ -23,9 +23,15 @@ const TokenSale = () => {
         // if (_amount <= 0 && !accountData.address)  return null;
         try {
             setLoading(true)
-            let knot = await new  Contract(IdoAddress, Ido.abi, signer);
+            let referralAddress =  await asPath.split('#/')[1];
+            if (!referralAddress || referralAddress.length !== 42) {
+                referralAddress = '0x0000000000000000000000000000000000000000'
+            }
+            let knot = await new  Contract(IdoAddress, Presale.abi, signer);
+            console.log(knot)
             let amount = ethers.utils.parseEther(isKdStake.toString());
-            let response = await knot.buyLemonTokens({value: amount});
+
+            let response = await knot.buy(referralAddress.toString(),{value: amount});
             let hash = response.hash
             setInput('')
             setLoading(false)
@@ -67,7 +73,7 @@ const TokenSale = () => {
                                 <div className='flex justify-center items-center border-2 border-gray-400 rounded-xl mx-2'>
                                     <input className='shadow-none outline-none rounded-xl w-full  py-3 px-4 ' placeholder='100...' 
                                    value={isKdStake} onChange={(e) =>setKdStake(e.target.value)}
-                                    type='number'
+                                   
                                     />
                                 
                                 </div >

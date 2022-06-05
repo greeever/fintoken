@@ -1,12 +1,14 @@
 import { Dialog, Transition , Menu} from '@headlessui/react'
 import { Fragment, useState, useEffect } from 'react'
-import { useConnect, useAccount } from 'wagmi';
+import { useConnect, useAccount, useProvider } from 'wagmi';
 import { useTheme } from 'next-themes'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { ethers, utils } from 'ethers';
+const provider = new ethers.providers.JsonRpcProvider('https://rpc-mumbai.maticvigil.com/')
 
  const Navbar =() => {
   const [{ data, error}, connect] = useConnect()
+  // const [{ data: provider }] = useProvider()
   const [{ data: accountData }, disconnect] = useAccount({
     fetchEns: true,
   })
@@ -33,8 +35,7 @@ import { ethers, utils } from 'ethers';
 
     const init = async () => {
       try {
-          const provider = new ethers.providers.Web3Provider(window.ethereum)
-          const chain = await provider.getNetwork()
+        const chain = await provider.getNetwork()
           const balance = await provider.getBalance(accountData?.address)
          setChainId(chain.chainId)
          setBalance(utils.formatEther(balance))
