@@ -1,5 +1,4 @@
-import Head from 'next/head'
-import { useAccount } from "wagmi";
+import { useAccount, useBalance } from "wagmi";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/Navbar'
@@ -18,7 +17,6 @@ const Home = () => {
   // LidoPool deployed to: 0x08F285104dBF45D89EaA487eDc21FA2D92B04a46
   return (
     <>
-   
      <div className="w-11/12 mx-auto">
          <Navbar className='fixed top-0 pb-10' />
     {accountData ? (<Layout />): (<Landing />)}    

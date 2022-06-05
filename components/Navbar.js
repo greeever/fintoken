@@ -88,7 +88,7 @@ import { ethers, utils } from 'ethers';
         </div>
         <div className='ml-3 flex items-center justify-around'>
             {/* <div>Chase: $0.003</div> */}
-      <Menu as="div" className="relative inline-block md:hidden text-left ">
+      {/* <Menu as="div" className="relative inline-block md:hidden text-left ">
         <div>
           <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-black  dark:text-gray-100  hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
             Options
@@ -123,13 +123,13 @@ import { ethers, utils } from 'ethers';
               </div>  
           </Menu.Items>
         </Transition>
-      </Menu>
+      </Menu> */}
 
 
        
 
       <div className='ml-3'>
-          <button onClick={openModal} className='text-white bg-orange-200 text-sm font-semibold p-2 rounded-xl'>connect</button>
+          <button onClick={openModal} className='border-gray-200 border-2 text-white bg-inherit text-sm font-semibold p-2 rounded-xl'>{accountData ? 'Account' : 'Connect'}</button>
       </div>
       </div>
     </div>
@@ -174,7 +174,7 @@ import { ethers, utils } from 'ethers';
                 <Dialog.Title as="div"
                 className="flex justify-between px-3"
                 >
-                    <h2 className="text-lg font-medium leading-6 text-black"> Choose Wallet</h2>
+                    <h2 className="text-lg font-medium leading-6 text-black">{accountData ? 'Wallet Account Details': 'Connect Wallet'} Choose Wallet</h2>
                     <span className="text-lg font-extrabold  text-gray-800 dark:text-gray-10" onClick={closeModal}>X</span> 
                 </Dialog.Title>
                 <div className="mt-2">

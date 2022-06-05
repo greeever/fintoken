@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html className="dark" lang="en">
          <Head>
-        <title>Chase</title>
+        {/* <title>Chase Finance</title> */}
             <meta name="description" content="Chase Protocol" />
             <link rel="icon" href="/logo.svg" />
             <link rel="preconnect" href="https://fonts.googleapis.com" />
