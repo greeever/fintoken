@@ -15,7 +15,7 @@ const connectors = ({ chainId }) => {
     new InjectedConnector({ chains }),
     new WalletConnectConnector({
       options: {
-        infuraId: "8abeafde689b4b7bbeca31ed130ed3c1",
+        infuraId: "6Wrtujs7IW1ekipJjG-uNWY5Fdn01s3d",
         qrcode: true,
       },
     }),
