@@ -104,7 +104,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={client}>
        <Head>
-        <title>My new cool app</title>
+        <title>Chase Finance</title>
       </Head>
       <ThemeProvider forcedTheme={Component.theme || undefined} attribute="class">
         <Component {...pageProps} />
