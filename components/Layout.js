@@ -7,9 +7,10 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 // import CdTimerComp from "./CdTimerComp";
 import Presale from '../abi/Presale.json'
 
-
-const IdoAddress = '0xBB8F9a81E652AC2adF8731667Dda3F232b7cb789';
+const IdoAddress = '0xC53E23DeC3B879C4D3Dab21c63C11d65DA6582b2'
+// const IdoAddress = '0xBB8F9a81E652AC2adF8731667Dda3F232b7cb789';
 //token 0x3b118415e2E261ea1A62C20eA7f1118fd47FAfB2
+// token bsc 0xa55D77f1f8e1e3792032D57ab98cDFBa2b9C1D65
 let texx
 const truncateAddress = (address) => {
     // This help solves the null error
