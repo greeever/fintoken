@@ -1,6 +1,6 @@
 import { Dialog, Transition , Menu} from '@headlessui/react'
 import { Fragment, useState, useEffect } from 'react'
-import { useConnect, useAccount, useProvider, useSigner, useDisconnect } from 'wagmi';
+import { useConnect, useAccount, useProvider, useSigner, useDisconnect, useBalance } from 'wagmi';
 import { useTheme } from 'next-themes'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { ethers, utils } from 'ethers';
@@ -15,6 +15,7 @@ import { useIsMounted} from '../hooks/useIsMounted'
     const provider = useProvider()
     const signer = useSigner()
     const { data: accountData } = useAccount()
+    const {data: balance} = useBalance()
     const isMounted = useIsMounted()
     const {
       activeConnector,
@@ -168,7 +169,7 @@ import { useIsMounted} from '../hooks/useIsMounted'
                 <Dialog.Title as="div"
                 className="flex justify-between px-3"
                 >
-                    <h2 className="text-lg font-medium leading-6 text-black">{accountData ? 'Wallet Account Details': 'Connect Wallet'} Choose Wallet</h2>
+                    <h2 className="text-lg font-medium leading-6 text-black">{accountData ? 'Wallet Details': 'Connect Wallet'}</h2>
                     <span className="text-lg font-extrabold  text-gray-800 dark:text-gray-10" onClick={closeModal}>X</span> 
                 </Dialog.Title>
                 <div className="mt-2">

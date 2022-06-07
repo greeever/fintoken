@@ -134,8 +134,8 @@ const Layout = () => {
         <>
         {/* <CdTimerComp /> */}
         {/* ETH BALANCE */}
-            <div className=" w-11/12 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800">
-                <div className="py-4">
+            {/* <div className=" w-11/12 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800"> */}
+                {/* <div className="py-4"> */}
 
                     {/* <div className="flex  justify-between px-8 pt-4 pb-2 text-gray-800 dark:text-gray-100">
                         <div className=''>
@@ -144,21 +144,21 @@ const Layout = () => {
                         <p>0</p>
                     </div> */}
                     
-                    <div className="flex  justify-between px-8 pt-4 pb-2 text-gray-800 dark:text-gray-100">
+                    {/* <div className="flex  justify-between px-8 pt-4 pb-2 text-gray-800 dark:text-gray-100">
                         <div className=''>
                         <p>Your BNB Deposit :</p>
                         </div>     
                         <p>{isContribution}</p>
-                    </div>
+                    </div> */}
 
-                    <div className="flex  justify-between px-8 pt-4 pb-2 text-gray-800 dark:text-gray-100">
+                    {/* <div className="flex  justify-between px-8 pt-4 pb-2 text-gray-800 dark:text-gray-100">
                         <div className=''>
                         <p>Total Presale Token :</p>
                         </div>     
                         <p>10M</p>
-                    </div>
-                </div>
-            </div>
+                    </div> */}
+                {/* </div> */}
+            {/* </div> */}
 
 
         <div className=" w-11/12 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800 py-10">
@@ -181,10 +181,15 @@ const Layout = () => {
                     <Tab.Panel>
                     <div className=" w-11/12 bg-gray-100 md:max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800 ">
                         <div className='text-center pt-8'>
-                            <p className='py-3 text-gray-800 dark:text-gray-100'> Deposit ETH for Chase</p>
-                            <p className='py-3 text-gray-800 dark:text-gray-100'>Min 0.01 BNB / Max 10,000 BNB</p>
+
                             <div className='flex justify-around items-center text-gray-800 dark:text-gray-100 border-b border-gray-300 dark:border-gray-600 w-10/12 mx-auto'>
-                            {/* <p className='py-3 text-gray-800 dark:text-gray-100'>Estimated Token:</p> <p>{isAmount}</p> */}
+                            <p className='py-3 text-gray-800 dark:text-gray-100'>Trade:</p>
+                            <p className='py-3 text-gray-800 dark:text-gray-100'>Min 0.01 BNB</p>
+                            </div>
+
+                            <div className='mb-6 md:mb-10 flex justify-around items-center text-gray-800 dark:text-gray-100 border-b border-gray-300 dark:border-gray-600 w-10/12 mx-auto'>
+                            <p className='py-3 text-gray-800 dark:text-gray-100'>Chase:</p>
+                            <p className='py-3 text-gray-800 dark:text-gray-100'>100M ~ $150,000</p>
                             </div>
                            <form className='w-full md:w-3/5 dark:text-gray-100 py-4 mx-auto'
                             onSubmit={(e) =>
