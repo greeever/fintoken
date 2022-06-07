@@ -26,7 +26,7 @@ const Layout = () => {
     const [isBuyLoading, setBuyLoading] = useState(false);
     const [isClaimLoading, setClaimLoading] = useState(false);
     const [isAmount, setAmount] = useState(0);
-    const [isReferralCount, setReferralCount] = useState(0)
+    const [isReferralCount, setReferralCount] = useState(0.1)
     const [isReferralReward, setReferralReward] = useState(0)
     const [isContribution, setContribution] = useState(0)
     const [isRate, setRate] = useState(0)
