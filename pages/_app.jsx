@@ -6,6 +6,7 @@ import {
   WagmiConfig,
   configureChains,
   createClient,
+  defaultChains,
   chain
 } from 'wagmi'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
@@ -13,6 +14,7 @@ import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
 const alchemyId = '6Wrtujs7IW1ekipJjG-uNWY5Fdn01s3d'
 if (alchemyId === undefined) {
@@ -21,11 +23,53 @@ if (alchemyId === undefined) {
   console.log('alchemy is clear', alchemyId)
 }
 
+const smartChainChain = {
+  id: 56,
+  name: 'Binance',
+  network: 'Binance',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Binance',
+    symbol: 'BSC',
+  },
+  rpcUrls: {
+    default: 'https://bsc-dataseed.binance.org',
+  },
+  blockExplorers: {
+    default: { name: 'BscScan', url: 'https://bscscan.com' },
+  },
+  testnet: false,
+}
 
-const defaultL2Chains = [chain.polygon, chain.polygonMumbai]
 
-const { chains, provider, webSocketProvider } = configureChains(defaultL2Chains, [
-  alchemyProvider({ alchemyId }),
+const smartTestChain = {
+  id: 97,
+  name: 'Binance_Testnet',
+  network: 'Binance_Testnet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Binance_Testnet',
+    symbol: 'BSC_Testnet',
+  },
+  rpcUrls: {
+    default: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+  },
+  blockExplorers: {
+    default: { name: 'BscTestnetScan', url: 'https://testnet.bscscan.com' },
+  },
+  testnet: false,
+}
+
+
+const defaultL2Chains = [smartChainChain, smartTestChain]
+
+const { chains, provider } = configureChains(defaultL2Chains, [
+  jsonRpcProvider({
+    rpc: (chain) => {
+      // if (chain.id !== smartChainChain.id || chain.id !== smartTestChain) return null
+      return { http: chain.rpcUrls.default }
+}
+  }),
 ])
 
 const client = createClient({
@@ -35,7 +79,7 @@ const client = createClient({
     new CoinbaseWalletConnector({
       chains,
       options: {
-        appName: 'wagmi',
+        appName: 'chase_finance',
       },
     }),
     new WalletConnectConnector({
@@ -53,7 +97,6 @@ const client = createClient({
     }),
   ],
   provider,
-  webSocketProvider,
 })
 
 export default function MyApp({ Component, pageProps }) {
