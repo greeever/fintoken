@@ -53,7 +53,7 @@ import { useIsMounted} from '../hooks/useIsMounted'
     <a href="/" className="flex items-center pr-2" aria-current="page">
                     <img className="h-10" src="logo.svg" />
                 </a>
-
+{/* 
                   <div className="cursor-pointer ml-4 md:hidden"
               onClick={() => {
                 setTheme(theme === 'light' ? 'dark' : 'light')
@@ -65,12 +65,13 @@ import { useIsMounted} from '../hooks/useIsMounted'
                :
                <img className="w-5 h-5" src="sun.svg" alt="" />
             }
-               </div> 
+               </div>  */}
         <div className='hidden md:flex items-center justify-between space-x-10'>
             <p className='text-black  dark:text-gray-100 '>Twitter</p>
             <p className='text-black  dark:text-gray-100 '>Telegram</p>
-            <div className="cursor-pointer ml-4 hidden md:inline-block"
+            {/* <div className="cursor-pointer ml-4 hidden md:inline-block"
               onClick={() => {
+                console.log('fire')
                 setTheme(theme === 'light' ? 'dark' : 'light')
               }}
            >
@@ -79,7 +80,7 @@ import { useIsMounted} from '../hooks/useIsMounted'
                :
                <img className="w-5 h-5" src="sun.svg" alt="" />
             }
-               </div>
+               </div> */}
         </div>
         <div className='ml-3 flex items-center justify-around'>
             {/* <div>Chase: $0.003</div> */}

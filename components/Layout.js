@@ -26,8 +26,8 @@ const Layout = () => {
     const [isLoading, setLoading] = useState(false);
     const [isBuyLoading, setBuyLoading] = useState(false);
     const [isClaimLoading, setClaimLoading] = useState(false);
-    const [isAmount, setAmount] = useState(0);
-    const [isReferralCount, setReferralCount] = useState(0.1)
+    const [isAmount, setAmount] = useState();
+    const [isReferralCount, setReferralCount] = useState(0)
     const [isReferralReward, setReferralReward] = useState(0)
     const [isContribution, setContribution] = useState(0)
     const [isRate, setRate] = useState(0)
@@ -185,16 +185,7 @@ const [isMessage, setMessage] = useState('')
                     <div className=" w-11/12 bg-gray-100 md:max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800 ">
                         <div className='text-center pt-8'>
 
-                            <div className='flex justify-around items-center text-gray-800 dark:text-gray-100 border-b border-gray-300 dark:border-gray-600 w-10/12 mx-auto'>
-                            <p className='py-3 text-gray-800 dark:text-gray-100'>Trade:</p>
-                            <p className='py-3 text-gray-800 dark:text-gray-100'>Min 0.01 BNB</p>
-                            </div>
-
-                            <div className='mb-6 md:mb-10 flex justify-around items-center text-gray-800 dark:text-gray-100 border-b border-gray-300 dark:border-gray-600 w-10/12 mx-auto'>
-                            <p className='py-3 text-gray-800 dark:text-gray-100'>Chase:</p>
-                            <p className='py-3 text-gray-800 dark:text-gray-100'>100M ~ $150,000</p>
-                            <p className='py-3 text-gray-800 dark:text-gray-100'>{estimatedValue}</p>
-                            </div>
+                            
                            <form className='w-full md:w-3/5 dark:text-gray-100 py-4 mx-auto'
                             onSubmit={(e) =>
                                 {
@@ -205,7 +196,7 @@ const [isMessage, setMessage] = useState('')
                                 <div className='flex space-x-1 pb-4 px-2 mx-auto'>
                                     <span className='pl-0.5 inline-flex items-center px-3 pointer-events-none text-sm rounded-l-md dark:bg-gray-700 text-gray-800 dark:text-gray-100'>Chase</span>
                                     <img src='/logo.svg' className='w-2 h-2' />
-                                    <input className='py-3 flex-1 inline-flex border text-sm rounded-r-md focus:ring-inset dark:border-gray-700 dark:text-gray-100 dark:bg-gray-800 focus:ring-violet-400 rounded-xl' type='number' placeholder='enter amount'
+                                    <input className='placeholder:pl-4 placeholder:textlg py-3 flex-1 inline-flex border text-sm rounded-r-md focus:ring-inset dark:border-gray-700 dark:text-gray-100 dark:bg-gray-800 focus:ring-violet-400 rounded-xl' type='number' placeholder='enter amount'
                                      value={isAmount} onChange={(e) =>setAmount(e.target.value)}
                                     />
                                 </div>
@@ -221,6 +212,20 @@ const [isMessage, setMessage] = useState('')
                             }
                                {isMessage && <p className='text-gray-800 dark:text-gray-100 pt-1 text-sm font-sans'>{isMessage} </p>}
                            </form>
+                           <div className='flex justify-around items-center text-gray-800 dark:text-gray-100  w-10/12 mx-auto'>
+                            <p className=' text-gray-800 dark:text-gray-100'>Estimated rewards:</p>
+                            <p className=' text-gray-800 dark:text-gray-100'>{estimatedValue}</p>
+                            </div>
+
+                           <div className='flex justify-around items-center text-gray-800 dark:text-gray-100 w-10/12 mx-auto'>
+                            <p className='text-gray-800 dark:text-gray-100'>Trade:</p>
+                            <p className='text-gray-800 dark:text-gray-100'>Min 0.01 BNB</p>
+                            </div>
+
+                            <div className='mb-2 md:mb-4 flex justify-around items-center text-gray-800 dark:text-gray-100 w-10/12 mx-auto'>
+                            <p className='py-3 text-gray-800 dark:text-gray-100'>Chase:</p>
+                            <p className='py-3 text-gray-800 dark:text-gray-100'>100M ~ $150,000</p>
+                            </div>
                         </div>
                         </div>
                        
@@ -267,7 +272,10 @@ const [isMessage, setMessage] = useState('')
                 <h1 className='py-3 text-gray-800 dark:text-gray-100'>Referral Code</h1>
                 <p className='py-3 text-gray-800 dark:text-gray-100'>5% token reward when anyone deposit with your link</p>
                 <p className='break-all  py-3 px-3 text-gray-800 dark:text-gray-100'>https://chasefinance.io#/{truncateAddress(accountData.address)}
-               {accountData && 
+                </p> 
+            </div>
+            {accountData && 
+               <div className='flex justify-center mx-auto mb-3'>
                 <CopyToClipboard
                     text={texx}
                     onCopy={() => {
@@ -284,11 +292,8 @@ const [isMessage, setMessage] = useState('')
                   }  
 
                 </CopyToClipboard>
+                </div>
                 }
-               
-                </p>
-               
-            </div>
         </div>
 
         <div className=" w-11/12 mb-4 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800 ">

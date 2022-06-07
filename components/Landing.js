@@ -48,7 +48,7 @@ const Landing = () => {
 							tokonised Potfolio Manager.
                     </h1>
                     <p className="text-black dark:text-gray-500 max-w-xl mx-auto leading-relaxed">
-					We have developed an investment platform that allow users to gain from special NFT tokens, the value of which depends on the performance of the NFT e.g Bored Ape NFT
+					We have developed an investment platform that allow users to gain special NFT tokens, the value of which depends on the performance of the NFT e.g Bored Ape NFT
                     </p>
                 </div>
 				{/* <Link href='/presale'>
@@ -129,17 +129,17 @@ const Landing = () => {
 				<div className="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-700">
 					<div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-violet-400">
 						<h3 className="text-xl font-semibold tracking-wide font-sans  text-black dark:text-gray-100">Token Presale </h3>
-						<time className="text-xs tracking-wide uppercase  font-sans  text-black dark:text-gray-100">May 2022</time>
+						<time className="text-xs tracking-wide uppercase  font-sans  text-black dark:text-gray-100">June 2022</time>
 						<p className="mt-3 font-sans  text-black dark:text-gray-100">Official release,marketing & sales of $Chase</p>
 					</div>
 					<div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-violet-400">
 						<h3 className="text-xl font-semibold tracking-wide font-sans  text-black dark:text-gray-100">Development & Testing</h3>
-						<time className="text-xs tracking-wide uppercase font-sans  text-black dark:text-gray-100">Jun 2022</time>
+						<time className="text-xs tracking-wide uppercase font-sans  text-black dark:text-gray-100">July 2022</time>
 						<p className="mt-3 font-sans  text-black dark:text-gray-100">Chase software development & Testing. </p>
 					</div>
 					<div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-violet-400">
 						<h3 className="text-xl font-semibold tracking-wide font-sans  text-black dark:text-gray-100">Lunch</h3>
-						<time className="text-xs tracking-wide uppercase gg font-sans  text-black dark:text-gray-100">July 2022</time>
+						<time className="text-xs tracking-wide uppercase gg font-sans  text-black dark:text-gray-100">Aug 2022</time>
 						<p className="mt-3 font-sans  text-black dark:text-gray-100">Lunch of Chase </p>
 					</div>
 				</div>
