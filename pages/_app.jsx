@@ -1,38 +1,71 @@
 import {useEffect} from 'react'
 import "../styles/globals.css";
 import Head from 'next/head'
-import { Provider, chain, defaultL2Chains } from "wagmi";
-import { InjectedConnector } from "wagmi/connectors/injected";
-import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { ThemeProvider } from 'next-themes';
-const chains = defaultL2Chains;
+import {
+  WagmiConfig,
+  configureChains,
+  createClient,
+  chain
+} from 'wagmi'
+import { alchemyProvider } from 'wagmi/providers/alchemy'
+import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
+import { InjectedConnector } from 'wagmi/connectors/injected'
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
+import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 
-const connectors = ({ chainId }) => {
-  const rpcUrl =
-    chains.find((x) => x.id === chainId)?.rpcUrls?.[0] ??
-    chain.mainnet.rpcUrls[0];
-  return [
-    new InjectedConnector({ chains }),
-    new WalletConnectConnector({
+const alchemyId = '6Wrtujs7IW1ekipJjG-uNWY5Fdn01s3d'
+if (alchemyId === undefined) {
+  console.log('this is alchemy error', alchemyId)
+} else {
+  console.log('alchemy is clear', alchemyId)
+}
+
+
+const defaultL2Chains = [chain.polygon, chain.polygonMumbai]
+
+const { chains, provider, webSocketProvider } = configureChains(defaultL2Chains, [
+  alchemyProvider({ alchemyId }),
+])
+
+const client = createClient({
+  autoConnect: true,
+  connectors: [
+    new MetaMaskConnector({ chains }),
+    new CoinbaseWalletConnector({
+      chains,
       options: {
-        infuraId: "8abeafde689b4b7bbeca31ed130ed3c1",
+        appName: 'wagmi',
+      },
+    }),
+    new WalletConnectConnector({
+      chains,
+      options: {
         qrcode: true,
       },
     }),
-  ];
-};
+    new InjectedConnector({
+      chains,
+      options: {
+        name: 'Injected',
+        shimDisconnect: true,
+      },
+    }),
+  ],
+  provider,
+  webSocketProvider,
+})
 
 export default function MyApp({ Component, pageProps }) {
 
   return (
-    
-    <Provider autoConnect connectors={connectors}>
-       <ThemeProvider forcedTheme={Component.theme || undefined} attribute="class">
+    <WagmiConfig client={client}>
        <Head>
         <title>My new cool app</title>
       </Head>
+      <ThemeProvider forcedTheme={Component.theme || undefined} attribute="class">
         <Component {...pageProps} />
         </ThemeProvider>
-      </Provider>
+        </WagmiConfig>
   );
 }

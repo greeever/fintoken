@@ -32,10 +32,8 @@ const Layout = () => {
     const [isRate, setRate] = useState(0)
     const [copyAddress, setCopyAddress] = useState(false);
 
-    const [{ data: accountData }] = useAccount({
-        fetchEns: true,
-      })
-      const [{ data: signer }] = useSigner()
+    const { data : accountData} = useAccount()
+      const { data: signer } = useSigner()
      
 
     const init = async () => {
@@ -108,7 +106,6 @@ const Layout = () => {
             let response = await contract.buy(referralAddress.toString(),{value: amount});
             let hash = response.hash
             console.log(hash)
-            setInput()
         } 
         catch (error) {
             setBuyLoading(false)

@@ -1,22 +1,32 @@
 import { Dialog, Transition , Menu} from '@headlessui/react'
 import { Fragment, useState, useEffect } from 'react'
-import { useConnect, useAccount, useProvider } from 'wagmi';
+import { useConnect, useAccount, useProvider, useSigner, useDisconnect } from 'wagmi';
 import { useTheme } from 'next-themes'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { ethers, utils } from 'ethers';
-const provider = new ethers.providers.JsonRpcProvider('https://rpc-mumbai.maticvigil.com/')
+import { useIsMounted} from '../hooks/useIsMounted'
 
  const Navbar =() => {
-  const [{ data, error}, connect] = useConnect()
-  // const [{ data: provider }] = useProvider()
-  const [{ data: accountData }, disconnect] = useAccount({
-    fetchEns: true,
-  })
+
+
  
     let [isOpen, setIsOpen] = useState(false)
-    const [balance, setBalance] = useState('')
-    const [chainId, setChainId] = useState('')
     const { theme, setTheme } = useTheme()
+    const provider = useProvider()
+    const signer = useSigner()
+    const { data: accountData } = useAccount()
+    const isMounted = useIsMounted()
+    const {
+      activeConnector,
+      connect,
+      connectors,
+      error,
+      isConnecting,
+      pendingConnector,
+    } = useConnect()
+    const { disconnect } = useDisconnect()
+
+
     function closeModal() {
       setIsOpen(false)
     }
@@ -32,23 +42,6 @@ const provider = new ethers.providers.JsonRpcProvider('https://rpc-mumbai.maticv
     function shortNumber(x) {
       return Number.parseFloat(x).toFixed(2);
     }
-
-    const init = async () => {
-      try {
-        const chain = await provider.getNetwork()
-          const balance = await provider.getBalance(accountData?.address)
-         setChainId(chain.chainId)
-         setBalance(utils.formatEther(balance))
-      }catch(e){
-        console.log('this is navbar error', e)
-      }
-    }
-
-    useEffect(() => {
-      if(accountData) {
-          init()
-      }
-  },[accountData])
 
     
     
@@ -181,20 +174,21 @@ const provider = new ethers.providers.JsonRpcProvider('https://rpc-mumbai.maticv
                 <div className="mt-2">
                 {!accountData &&
                 <div className='flex flex-col'>
-                 
-                    {data.connectors.map((connector) => (
-                        <button
-                        className='hover:bg-black hover:text-white text-black bg-inherit border border-gray-600  p-2 rounded-lg w-full' 
-                        disabled={!connector.ready}
-                        key={connector.id}
-                        onClick={() => connect(connector)}
-                        >
-                        {connector.name}
-                        {!connector.ready && ' (unsupported)'}
-                        </button>
-                    ))}
-                      <p className='py-3 text-left text-sm font-serif'>{accountData?.address}Please make sure you&apos;re on polygon mainnet</p>
-                    {/* {error && <div>{error?.message ?? 'Failed to connect'}</div>} */}
+                 {connectors
+          .filter((x) => isMounted && x.ready && x.id !== activeConnector?.id)
+          .map((x) => (
+            <button 
+            className='hover:bg-black hover:text-white text-black bg-inherit border border-gray-600  p-2 rounded-lg w-full' 
+            key={x.id} onClick={() => connect(x)}>
+              {x.name}
+              {isConnecting && x.id === pendingConnector?.id && ' (connecting)'}
+            </button>
+               ))}
+
+  
+                
+                      <p className='py-3 text-left text-sm font-serif'>Please make sure you&apos;re on polygon mainnet</p>
+
                     </div>
                      }
                      {accountData && 
@@ -204,10 +198,11 @@ const provider = new ethers.providers.JsonRpcProvider('https://rpc-mumbai.maticv
                       <button onClick={disconnect} className='mb-4 hover:bg-black hover:text-white  text-black bg-inherit border border-gray-600  p-2 rounded-lg w-full'>Disconnect</button>
                   
                
-                    <p className='text-black text-center font-serif font-semibold mx-auto'>{chainId 
+                    {/* <p className='text-black text-center font-serif font-semibold mx-auto'>{chainId 
                     // == 80001? 'Polygon': 'Wrong Network' 
-                    }</p>
-                    <p className='text-black text-center font-serif font-semibold mx-auto'>Balance: {shortNumber(balance)}</p>
+                    }</p> */}
+                    {/* <p className='text-black text-center font-serif font-semibold mx-auto'>Balance: {shortNumber(balance)}</p> */}
+                    <p className='py-3 text-left text-lg text-red-400 font-serif'> {error && <div>{error.message}</div>}</p>
                   </div>
                      }
                 </div>

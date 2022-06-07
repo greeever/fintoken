@@ -1,4 +1,4 @@
-import { useAccount, useBalance } from "wagmi";
+import { useAccount } from "wagmi";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/Navbar'
@@ -8,9 +8,7 @@ import Landing from '../components/Landing'
 // toast.configure()
 // let provider
 const Home = () => {
-  const [{ data: accountData }] = useAccount({
-    fetchEns: true,
-  })
+  const { data } = useAccount()
   // mainnet addresses
   // Lidotoken deployed to: 0xEe81Bde5cf32730b6627f61096fb6Cc07E0A962A
   // Ido deployed to: 0x5015D2ed2a861d1FDf66505Bdd4aAD7CE34B646e
@@ -19,7 +17,7 @@ const Home = () => {
     <>
      <div className="w-11/12 mx-auto">
          <Navbar className='fixed top-0 pb-10' />
-    {accountData ? (<Layout />): (<Landing />)}    
+    {data ? (<Layout />): (<Landing />)}    
        {/* <Footer className="" /> */}
       
  
