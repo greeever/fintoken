@@ -33,7 +33,7 @@ const smartChainChain = {
     symbol: 'BSC',
   },
   rpcUrls: {
-    default: 'https://bsc-dataseed.binance.org',
+    default: 'https://bsc-dataseed4.binance.org/',
   },
   blockExplorers: {
     default: { name: 'BscScan', url: 'https://bscscan.com' },
@@ -52,7 +52,7 @@ const smartTestChain = {
     symbol: 'BSC_Testnet',
   },
   rpcUrls: {
-    default: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+    default: 'https://data-seed-prebsc-2-s3.binance.org:8545/',
   },
   blockExplorers: {
     default: { name: 'BscTestnetScan', url: 'https://testnet.bscscan.com' },

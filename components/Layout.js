@@ -7,10 +7,10 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 // import CdTimerComp from "./CdTimerComp";
 import Presale from '../abi/Presale.json'
 
-const IdoAddress = '0xC53E23DeC3B879C4D3Dab21c63C11d65DA6582b2'
+const IdoAddress = '0x4b08BDEED5E4797888F16E7F537B5A52Db35594E'
 // const IdoAddress = '0xBB8F9a81E652AC2adF8731667Dda3F232b7cb789';
 //token 0x3b118415e2E261ea1A62C20eA7f1118fd47FAfB2
-// token bsc 0xa55D77f1f8e1e3792032D57ab98cDFBa2b9C1D65
+// token bsc 0x187dDc0DCd7bB259E9E9884899383F2a527d7a61
 let texx
 const truncateAddress = (address) => {
     // This help solves the null error
@@ -32,7 +32,7 @@ const Layout = () => {
     const [isContribution, setContribution] = useState(0)
     const [isRate, setRate] = useState(0)
     const [copyAddress, setCopyAddress] = useState(false);
-
+const [isMessage, setMessage] = useState('')
     const { data : accountData} = useAccount()
       const { data: signer } = useSigner()
      
@@ -92,13 +92,10 @@ const Layout = () => {
                 referralAddress = '0x0000000000000000000000000000000000000000'
             }
             if (isAmount < 0.1 ) {
-                return;
-            }
-            if (isAmount > 10000 ) {
-                return;
+                setMessage('Amount lower than minimum')
             }
             if (referralAddress === accountData?.address) {
-                return;
+                setMessage('Cannot refer self')
               }
 
             let amount = ethers.utils.parseEther(isAmount.toString());
@@ -130,6 +127,11 @@ const Layout = () => {
         setClaimLoading(false)
     }
 
+    function calcaPercent() {
+        const percentCalculation = (isAmount * 10000).toFixed(2);
+        return percentCalculation;
+      }
+      const estimatedValue = calcaPercent();
 
     return (
         <>
@@ -191,6 +193,7 @@ const Layout = () => {
                             <div className='mb-6 md:mb-10 flex justify-around items-center text-gray-800 dark:text-gray-100 border-b border-gray-300 dark:border-gray-600 w-10/12 mx-auto'>
                             <p className='py-3 text-gray-800 dark:text-gray-100'>Chase:</p>
                             <p className='py-3 text-gray-800 dark:text-gray-100'>100M ~ $150,000</p>
+                            <p className='py-3 text-gray-800 dark:text-gray-100'>{estimatedValue}</p>
                             </div>
                            <form className='w-full md:w-3/5 dark:text-gray-100 py-4 mx-auto'
                             onSubmit={(e) =>
@@ -216,7 +219,7 @@ const Layout = () => {
                             </button>):
                             ( <button disabled={!accountData} type='submit' className='px-3 border-2  bg-inherit border-gray-300 dark:border-gray-600 rounded-xl hover:border-gray-500 hover:shadow md:text-sm font-bold font-dmsans text-gray-700 dark:text-gray-100 md:mt-0 mt-4 h-12 flex items-center justify-center  hover:bg-blue-200 hover:dark:bg-gray-600  w-11/12  md:w-1/3 text-center cursor-pointer mx-auto'>Deposit</button>)
                             }
-                               {!accountData && <p className='text-gray-800 dark:text-gray-100 pt-1 text-sm font-sans'>Must Connect wallet</p>}
+                               {isMessage && <p className='text-gray-800 dark:text-gray-100 pt-1 text-sm font-sans'>{isMessage} </p>}
                            </form>
                         </div>
                         </div>
