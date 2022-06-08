@@ -196,7 +196,7 @@ const [isMessage, setMessage] = useState('')
                                 <div className='flex space-x-1 pb-4 px-2 mx-auto'>
                                     <span className='pl-0.5 inline-flex items-center px-3 pointer-events-none text-sm rounded-l-md dark:bg-gray-700 text-gray-800 dark:text-gray-100'>Chase</span>
                                     <img src='/logo.svg' className='w-2 h-2' />
-                                    <input className='placeholder:pl-4 placeholder:textlg py-3 flex-1 inline-flex border text-sm rounded-r-md focus:ring-inset dark:border-gray-700 dark:text-gray-100 dark:bg-gray-800 focus:ring-violet-400 rounded-xl' type='number' placeholder='enter amount'
+                                    <input className='placeholder:pl-4 placeholder:textlg py-3 flex-1 inline-flex border text-sm rounded-r-md focus:ring-inset dark:border-gray-700 dark:text-gray-100 dark:bg-gray-800 focus:ring-violet-400 rounded-xl' placeholder='enter amount'
                                      value={isAmount} onChange={(e) =>setAmount(e.target.value)}
                                     />
                                 </div>
