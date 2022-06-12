@@ -1,12 +1,11 @@
 import {useState, useEffect, useContext} from 'react'
 import { useRouter } from 'next/router';
 import {ethers, Contract, utils, BigNumber} from 'ethers'
-import {useAccount, useSigner} from 'wagmi'
+import {useAccount, useSigner, useProvider} from 'wagmi'
 import { Tab } from '@headlessui/react'
 import { CopyToClipboard } from "react-copy-to-clipboard";
 // import CdTimerComp from "./CdTimerComp";
 import Presale from '../abi/Presale.json'
-
 const IdoAddress = '0x4b08BDEED5E4797888F16E7F537B5A52Db35594E'
 // const IdoAddress = '0xBB8F9a81E652AC2adF8731667Dda3F232b7cb789';
 //token 0x3b118415e2E261ea1A62C20eA7f1118fd47FAfB2
@@ -35,6 +34,7 @@ const Layout = () => {
 const [isMessage, setMessage] = useState('')
     const { data : accountData} = useAccount()
       const { data: signer } = useSigner()
+    //   const provider = useProvider()
      
 
     const init = async () => {
@@ -69,6 +69,8 @@ const [isMessage, setMessage] = useState('')
         }
     },[accountData])
 
+
+
     texx = `https://chasefinance.io#/${accountData.address}`
     // useEffect(()=>{
 
@@ -92,10 +94,10 @@ const [isMessage, setMessage] = useState('')
                 referralAddress = '0x0000000000000000000000000000000000000000'
             }
             if (isAmount < 0.1 ) {
-                setMessage('Amount lower than minimum')
+                setMessage('Amount lower than minimum, minimum 0.1')
             }
             if (referralAddress === accountData?.address) {
-                setMessage('Cannot refer self')
+                setMessage("You're referring self? No referral rewards for you")
               }
 
             let amount = ethers.utils.parseEther(isAmount.toString());
@@ -193,12 +195,12 @@ const [isMessage, setMessage] = useState('')
                                   buy()
                                 }}
                            >
-                                <div className='flex space-x-1 pb-4 px-2 mx-auto'>
-                                    <span className='pl-0.5 inline-flex items-center px-3 pointer-events-none text-sm rounded-l-md dark:bg-gray-700 text-gray-800 dark:text-gray-100'>Chase</span>
-                                    <img src='/logo.svg' className='w-2 h-2' />
-                                    <input className='placeholder:pl-4 placeholder:textlg py-3 flex-1 inline-flex border text-sm rounded-r-md focus:ring-inset dark:border-gray-700 dark:text-gray-100 dark:bg-gray-800 focus:ring-violet-400 rounded-xl' placeholder='enter amount'
+                                <div className='flex items-center justify-between pb-4 px-2 mx-auto'>
+                                    <img src='/logo.svg' className='w-5 h-5' />
+                                    <input className='placeholder:pl-4 bg-gray-200 border-2 border-gray-200 leading-tight focus:outline-none focus:bg-gray-100 appearance-none text-gray-900 placeholder:text-lg placeholder:font-semibold p-3 flex-1 inline-flex text-sm rounded-r-md focus:ring-inset dark:border-gray-700 dark:text-gray-100 dark:bg-gray-800 focus:ring-gray-100 rounded-xl' placeholder='0X'
                                      value={isAmount} onChange={(e) =>setAmount(e.target.value)}
                                     />
+
                                 </div>
                                 {isBuyLoading? 
                                 (<button  type="button" className="px-3 border-2  bg-inherit border-gray-300 dark:border-gray-600 rounded-xl hover:border-gray-500 hover:shadow md:text-sm font-bold font-dmsans text-gray-700 dark:text-gray-100 md:mt-0 mt-4 h-12 flex items-center justify-center  hover:bg-blue-200 hover:dark:bg-gray-600  w-11/12  md:w-1/3 text-center cursor-pointer mx-auto">
@@ -210,21 +212,16 @@ const [isMessage, setMessage] = useState('')
                             </button>):
                             ( <button disabled={!accountData} type='submit' className='px-3 border-2  bg-inherit border-gray-300 dark:border-gray-600 rounded-xl hover:border-gray-500 hover:shadow md:text-sm font-bold font-dmsans text-gray-700 dark:text-gray-100 md:mt-0 mt-4 h-12 flex items-center justify-center  hover:bg-blue-200 hover:dark:bg-gray-600  w-11/12  md:w-1/3 text-center cursor-pointer mx-auto'>Deposit</button>)
                             }
-                               {isMessage && <p className='text-gray-800 dark:text-gray-100 pt-1 text-sm font-sans'>{isMessage} </p>}
+                               {isMessage && <p className='text-red-600 pt-1 text-sm font-sans'>{isMessage} </p>}
                            </form>
-                           <div className='flex justify-around items-center text-gray-800 dark:text-gray-100  w-10/12 mx-auto'>
-                            <p className=' text-gray-800 dark:text-gray-100'>Estimated rewards:</p>
-                            <p className=' text-gray-800 dark:text-gray-100'>{estimatedValue}</p>
+                           <div className='flex justify-end md:justify-center space-x-2 items-center w-10/12 mx-auto py-1'>
+                            <p className=' text-gray-500 dark:text-gray-100 text-sm'>Output Amount:</p>
+                            <p className=' text-gray-500 dark:text-gray-100 text-sm'>{estimatedValue}</p>
                             </div>
 
-                           <div className='flex justify-around items-center text-gray-800 dark:text-gray-100 w-10/12 mx-auto'>
-                            <p className='text-gray-800 dark:text-gray-100'>Trade:</p>
-                            <p className='text-gray-800 dark:text-gray-100'>Min 0.01 BNB</p>
-                            </div>
-
-                            <div className='mb-2 md:mb-4 flex justify-around items-center text-gray-800 dark:text-gray-100 w-10/12 mx-auto'>
-                            <p className='py-3 text-gray-800 dark:text-gray-100'>Chase:</p>
-                            <p className='py-3 text-gray-800 dark:text-gray-100'>100M ~ $150,000</p>
+                           <div className='flex justify-end md:justify-center space-x-2  items-center w-10/12 mx-auto py-1'>
+                            <p className='text-gray-500 dark:text-gray-100 text-sm leading-tight'>Minimum:</p>
+                            <p className='text-gray-500 dark:text-gray-100 text-sm'>0.1 BNB ~ $25</p>
                             </div>
                         </div>
                         </div>
@@ -234,18 +231,15 @@ const [isMessage, setMessage] = useState('')
                     <Tab.Panel>
                     <div className=" w-11/12 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800 ">
                 <div className="py-4">
+                    <p className='text-sm font-sans leading-4 font-normal text-center text-gray-800'>Claim rewards here</p>
                     <div className="flex  justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
-                        <div className=''>
-                        <p>Your claimable Token:</p>
-                        </div>     
-                        <p>0</p>
+                        <p>Your Referral Count:</p>    
+                        <p>  {isReferralCount}</p>
                     </div>
 
-                    <div className="flex  justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
-                        <div className=''>
-                        <p>Your token Value :</p>
-                        </div>     
-                        <p>$1000</p>
+                   <div className="flex  justify-between px-8 p2-3 pb-2 text-gray-800 dark:text-gray-100">
+                        <p>Your token Rewards :</p>
+                        <p>{isReferralReward}</p>
                     </div>
                     {isClaimLoading ? 
                     (<button disabled type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center">
@@ -295,19 +289,19 @@ const [isMessage, setMessage] = useState('')
                 </div>
                 }
         </div>
-
+{/* 
         <div className=" w-11/12 mb-4 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800 ">
                 <div className="py-4">
 
-                    {/* <div className="flex  justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
+                    <div className="flex  justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
                         <div className=''>
                         <p>Your referral reward:</p>
                         </div>     
                         <p>
                             {isReferralReward}
                             </p>
-                    </div> */}
-                    <div className="flex  justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
+                    </div>
+                    <div className="flex flex-col text-left pl-4 justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
                         <div className=''>
                         <p>Your Referral Earned :</p>
                         </div>     
@@ -316,7 +310,7 @@ const [isMessage, setMessage] = useState('')
                         </p>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }

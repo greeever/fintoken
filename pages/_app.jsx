@@ -9,19 +9,19 @@ import {
   defaultChains,
   chain
 } from 'wagmi'
-import { alchemyProvider } from 'wagmi/providers/alchemy'
+// import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
-const alchemyId = '6Wrtujs7IW1ekipJjG-uNWY5Fdn01s3d'
-if (alchemyId === undefined) {
-  console.log('this is alchemy error', alchemyId)
-} else {
-  console.log('alchemy is clear', alchemyId)
-}
+// const alchemyId = '6Wrtujs7IW1ekipJjG-uNWY5Fdn01s3d'
+// if (alchemyId === undefined) {
+//   console.log('this is alchemy error', alchemyId)
+// } else {
+//   console.log('alchemy is clear', alchemyId)
+// }
 
 const smartChainChain = {
   id: 56,

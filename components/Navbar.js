@@ -1,9 +1,7 @@
-import { Dialog, Transition , Menu} from '@headlessui/react'
-import { Fragment, useState, useEffect } from 'react'
-import { useConnect, useAccount, useProvider, useSigner, useDisconnect, useBalance } from 'wagmi';
-import { useTheme } from 'next-themes'
-import { ChevronDownIcon } from '@heroicons/react/solid'
-import { ethers, utils } from 'ethers';
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react'
+import { useConnect, useAccount, useSigner, useDisconnect, useBalance } from 'wagmi';
+// import { useTheme } from 'next-themes'
 import { useIsMounted} from '../hooks/useIsMounted'
 
  const Navbar =() => {
@@ -11,11 +9,12 @@ import { useIsMounted} from '../hooks/useIsMounted'
 
  
     let [isOpen, setIsOpen] = useState(false)
-    const { theme, setTheme } = useTheme()
-    const provider = useProvider()
-    const signer = useSigner()
+    // const { theme, setTheme } = useTheme()
     const { data: accountData } = useAccount()
-    const {data: balance} = useBalance()
+    const { data, isError, isLoading } = useBalance({
+      addressOrName: 'awkweb.eth',
+    })
+
     const isMounted = useIsMounted()
     const {
       activeConnector,
@@ -26,6 +25,7 @@ import { useIsMounted} from '../hooks/useIsMounted'
       pendingConnector,
     } = useConnect()
     const { disconnect } = useDisconnect()
+    
 
 
     function closeModal() {
@@ -125,7 +125,7 @@ import { useIsMounted} from '../hooks/useIsMounted'
        
 
       <div className='ml-3'>
-          <button onClick={openModal} className='border-gray-200 border-2 text-white bg-inherit text-sm font-semibold p-2 rounded-xl'>{accountData ? 'Account' : 'Connect'}</button>
+          <button onClick={openModal} className='dark:border-gray-200 border-black border-2 text-black  dark:text-gray-100 bg-inherit text-sm font-semibold p-2 rounded-xl'>{accountData ? 'Account' : 'Connect'}</button>
       </div>
       </div>
     </div>
@@ -170,12 +170,12 @@ import { useIsMounted} from '../hooks/useIsMounted'
                 <Dialog.Title as="div"
                 className="flex justify-between px-3"
                 >
-                    <h2 className="text-lg font-medium leading-6 text-black">{accountData ? 'Wallet Details': 'Connect Wallet'}</h2>
+                    <h2 className="text-lg font-medium leading-6 text-black">{accountData ? 'Wallet Details': 'Connect Wallet on BSC Network'}</h2>
                     <span className="text-lg font-extrabold  text-gray-800 dark:text-gray-10" onClick={closeModal}>X</span> 
                 </Dialog.Title>
                 <div className="mt-2">
                 {!accountData &&
-                <div className='flex flex-col'>
+                <div className='flex flex-col px-4'>
                  {connectors
           .filter((x) => isMounted && x.ready && x.id !== activeConnector?.id)
           .map((x) => (
@@ -187,23 +187,21 @@ import { useIsMounted} from '../hooks/useIsMounted'
             </button>
                ))}
 
-  
-                
-                      <p className='py-3 text-left text-sm font-serif'>Please make sure you&apos;re on polygon mainnet</p>
-
                     </div>
+                    
                      }
+                   
                      {accountData && 
                        <div className='my-4'>
                        <p className='text-black text-center mb-8'>Address: {truncateAddress(accountData?.address)}</p>
-                      {/* <p className='text-black text-center'>ChainId: {chainId}</p> */}
+                       {/* <div className='text-gray-800'>
+                       Balance: {data?.formatted} {data?.symbol}
+                      </div> */}
                       <button onClick={disconnect} className='mb-4 hover:bg-black hover:text-white  text-black bg-inherit border border-gray-600  p-2 rounded-lg w-full'>Disconnect</button>
                   
                
-                    {/* <p className='text-black text-center font-serif font-semibold mx-auto'>{chainId 
-                    // == 80001? 'Polygon': 'Wrong Network' 
-                    }</p> */}
-                    {/* <p className='text-black text-center font-serif font-semibold mx-auto'>Balance: {shortNumber(balance)}</p> */}
+                    <p className='text-black text-center font-serif font-semibold mx-auto'>Make sure you're connected on Binance Chain</p>
+                     <p className='text-black text-center font-serif font-semibold mx-auto'>{}</p>
                     <p className='py-3 text-left text-lg text-red-400 font-serif'> {error && <div>{error.message}</div>}</p>
                   </div>
                      }

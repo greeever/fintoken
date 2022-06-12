@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import Link from "next/link";
 import CdTimerComp from "./CdTimerComp";
-
+import { useConnect, useProvider } from "wagmi";
 
 const Landing = () => {
 
@@ -17,15 +18,15 @@ const Landing = () => {
 		},
 		{
 			q: "How's this possible?",
-			a: "Member of the organisation purchase high value NFTs, while retainig their share with propostion to their contribution."
+			a: "Member of the organisation purchase high value NFTs, while retainig their share without propostion to their contribution."
 		},
 		{
 			q: "How safe is funds?",
-			a: "Member of the organisation funds are held in an audited smart contract that cannot be changed or accesed with autorisation"
+			a: "Member of the organisation funds are held in an audited smart contract that cannot be changed or accesed without autorisation"
 		},
 		{
 			q: "How to part of the community?",
-			a: "Users wishing to join must first purchase $chase from popular narketplace "
+			a: "Users wishing to join must first purchase $chase from popular marketplace "
 		},
 		{
 			q: "How to earn?",
@@ -33,12 +34,21 @@ const Landing = () => {
 		},     
 	]
 
+	const {
+		activeConnector,
+		connect,
+		connectors,
+		error,
+		isConnecting,
+		pendingConnector,
+	  } = useConnect()
+
     return (
         <>
                 <main >
      <div className="w-11/12 mx-auto  ">
 		<section className="mt-24 mx-auto max-w-screen-xl pb-4 px-4 sm:px-8 dark:bg-gray-800 dark:text-gray-100">
-                <div className="text-center space-y-4">
+                <div className="text-center space-y-4 mb-6">
                     <h1 className="font-bold text-4xl md:text-5xl text-black dark:text-gray-100">
                        Welcome to the first
 					   <br></br>
@@ -51,25 +61,36 @@ const Landing = () => {
 					We have developed an investment platform that allow users to gain special NFT tokens, the value of which depends on the performance of the NFT e.g Bored Ape NFT
                     </p>
                 </div>
-				{/* <Link href='/presale'>
+				<CdTimerComp />
+
+				{/* <div className="mx-auto text-center flex flex-col mt-12">
+					<p className="text-gray-800  font-serif leading-10 text-6xl">1,000,000,000</p>
+					<p className="text-gray-800 font-serif leading-6 text-2xl pt-2">Chase Token</p>
+
+				</div> */}
                 <div className="mt-12 justify-center items-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex">
-				    <button className="flex items-center space-x-2  px-10 py-3.5 w-full bg-indigo-600 text-white text-center rounded-md shadow-md sm:w-auto">
+				    <button 
+					onClick={connect}
+					className="flex items-center space-x-2  px-10 py-3.5 w-full bg-indigo-600 text-white text-center rounded-md shadow-md sm:w-auto">
 					<p>Enter Presale</p>
 					  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
   <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
 </svg>
-                    </button> */}
-                    {/* <a href="/" className="px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-indigo-600 hover:shadow block sm:w-auto border-gray-300 dark:border-gray-600">
-					Enter
-                    </a> */}
-                {/* </div>
-				</Link> */}
+                    </button>
+                    <a href="/" className="px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-indigo-600 hover:shadow block sm:w-auto border-gray-300 dark:border-gray-600">
+					View Etherscan
+                    </a>
+                </div>
+
+
+
+1800000000000000
             </section>
 			
-			<CdTimerComp />
+	
 		<section className='my-16'>
 			<div className='py-16 flex flex-col md:flex-row items-center'>
-				<h1 className='md:w-3/6 text-center text-black dark:text-gray-100 font-extrabold text-4xl font-sans'>Refer new users and earn high rewards together</h1>
+				<h1 className='md:w-3/6 text-center text-black dark:text-gray-100 font-extrabold text-6xl font-serif'>Refer new users and earn high rewards together</h1>
 				<div className='pt-8 md:w-3/6'>
 					<img className='mx-auto' src='/introduce-referral.svg' />
 				</div>
