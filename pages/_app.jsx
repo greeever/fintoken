@@ -6,10 +6,9 @@ import {
   WagmiConfig,
   configureChains,
   createClient,
-  defaultChains,
   chain
 } from 'wagmi'
-// import { alchemyProvider } from 'wagmi/providers/alchemy'
+import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
@@ -25,7 +24,7 @@ import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
 const smartChainChain = {
   id: 56,
-  name: 'Binance',
+  name: 'Binance Chain',
   network: 'Binance',
   nativeCurrency: {
     decimals: 18,
@@ -61,15 +60,10 @@ const smartTestChain = {
 }
 
 
-const defaultL2Chains = [smartChainChain, smartTestChain]
+const defaultL2Chains = [smartChainChain]
 
-const { chains, provider } = configureChains(defaultL2Chains, [
-  jsonRpcProvider({
-    rpc: (chain) => {
-      // if (chain.id !== smartChainChain.id || chain.id !== smartTestChain) return null
-      return { http: chain.rpcUrls.default }
-}
-  }),
+const { chains, provider, webSocketProvider } = configureChains(defaultL2Chains, [
+  alchemyProvider({ alchemyId }),
 ])
 
 const client = createClient({
@@ -79,7 +73,7 @@ const client = createClient({
     new CoinbaseWalletConnector({
       chains,
       options: {
-        appName: 'chase_finance',
+        appName: 'Zero Finance',
       },
     }),
     new WalletConnectConnector({
@@ -97,6 +91,7 @@ const client = createClient({
     }),
   ],
   provider,
+  webSocketProvider,
 })
 
 export default function MyApp({ Component, pageProps }) {
@@ -104,9 +99,10 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={client}>
        <Head>
-        <title>Chase Finance</title>
+        <title>Protea Finance</title>
       </Head>
       <ThemeProvider forcedTheme={Component.theme || undefined} attribute="class">
+        <Navbar />
         <Component {...pageProps} />
         </ThemeProvider>
         </WagmiConfig>
