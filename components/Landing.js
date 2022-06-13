@@ -77,7 +77,7 @@ const Landing = () => {
   <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
 </svg>
                     </button>
-                    <a href="" className="px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-indigo-600 hover:shadow block sm:w-auto border-gray-300 dark:border-gray-600">
+                    <a target="_blank" rel="noopener noreferrer" href="https://bscscan.com/tx/0x6c894dd2343e62d1c2531db76e93f7700df0d029b43e2af7872552057117f945" className="px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-indigo-600 hover:shadow block sm:w-auto border-gray-300 dark:border-gray-600">
 					View Etherscan
                     </a>
                 </div>
