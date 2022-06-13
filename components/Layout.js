@@ -6,8 +6,7 @@ import { Tab } from '@headlessui/react'
 import { CopyToClipboard } from "react-copy-to-clipboard";
 // import CdTimerComp from "./CdTimerComp";
 import Presale from '../abi/Presale.json'
-const IdoAddress = '0x4b08BDEED5E4797888F16E7F537B5A52Db35594E'
-// const IdoAddress = '0xBB8F9a81E652AC2adF8731667Dda3F232b7cb789';
+const IdoAddress = '0x8b3cd5a1e6776ea1c112dfb1b701cd1fcac574a0'
 //token 0x3b118415e2E261ea1A62C20eA7f1118fd47FAfB2
 // token bsc 0x187dDc0DCd7bB259E9E9884899383F2a527d7a61
 let texx
