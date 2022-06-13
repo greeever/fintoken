@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import CdTimerComp from "./CdTimerComp";
 import { useConnect, useProvider } from "wagmi";
-
+// 0x7e06da6db356bab6d16091f9dc072f3af9c3389f
 const Landing = () => {
 
 	const faqsList = [
@@ -77,7 +77,7 @@ const Landing = () => {
   <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
 </svg>
                     </button>
-                    <a href="/" className="px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-indigo-600 hover:shadow block sm:w-auto border-gray-300 dark:border-gray-600">
+                    <a href="" className="px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-indigo-600 hover:shadow block sm:w-auto border-gray-300 dark:border-gray-600">
 					View Etherscan
                     </a>
                 </div>
