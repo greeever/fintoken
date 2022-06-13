@@ -6,6 +6,7 @@ import {
   WagmiConfig,
   configureChains,
   createClient,
+  defaultChains,
   chain
 } from 'wagmi'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
@@ -15,16 +16,16 @@ import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
-// const alchemyId = '6Wrtujs7IW1ekipJjG-uNWY5Fdn01s3d'
-// if (alchemyId === undefined) {
-//   console.log('this is alchemy error', alchemyId)
-// } else {
-//   console.log('alchemy is clear', alchemyId)
-// }
+const alchemyId = '6Wrtujs7IW1ekipJjG-uNWY5Fdn01s3d'
+if (alchemyId === undefined) {
+  console.log('this is alchemy error', alchemyId)
+} else {
+  console.log('alchemy is clear', alchemyId)
+}
 
 const smartChainChain = {
   id: 56,
-  name: 'Binance Chain',
+  name: 'Binance',
   network: 'Binance',
   nativeCurrency: {
     decimals: 18,
@@ -62,8 +63,13 @@ const smartTestChain = {
 
 const defaultL2Chains = [smartChainChain]
 
-const { chains, provider, webSocketProvider } = configureChains(defaultL2Chains, [
-  alchemyProvider({ alchemyId }),
+const { chains, provider } = configureChains(defaultL2Chains, [
+  jsonRpcProvider({
+    rpc: (chain) => {
+      // if (chain.id !== smartChainChain.id || chain.id !== smartTestChain) return null
+      return { http: chain.rpcUrls.default }
+}
+  }),
 ])
 
 const client = createClient({
@@ -73,7 +79,7 @@ const client = createClient({
     new CoinbaseWalletConnector({
       chains,
       options: {
-        appName: 'Zero Finance',
+        appName: 'chase_finance',
       },
     }),
     new WalletConnectConnector({
@@ -91,7 +97,6 @@ const client = createClient({
     }),
   ],
   provider,
-  webSocketProvider,
 })
 
 export default function MyApp({ Component, pageProps }) {
@@ -99,10 +104,9 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={client}>
        <Head>
-        <title>Protea Finance</title>
+        <title>Chase Finance</title>
       </Head>
       <ThemeProvider forcedTheme={Component.theme || undefined} attribute="class">
-        <Navbar />
         <Component {...pageProps} />
         </ThemeProvider>
         </WagmiConfig>

@@ -289,28 +289,6 @@ const [isMessage, setMessage] = useState('')
                 </div>
                 }
         </div>
-{/* 
-        <div className=" w-11/12 mb-4 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800 ">
-                <div className="py-4">
-
-                    <div className="flex  justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
-                        <div className=''>
-                        <p>Your referral reward:</p>
-                        </div>     
-                        <p>
-                            {isReferralReward}
-                            </p>
-                    </div>
-                    <div className="flex flex-col text-left pl-4 justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
-                        <div className=''>
-                        <p>Your Referral Earned :</p>
-                        </div>     
-                        <p>
-                            {isReferralCount}
-                        </p>
-                    </div>
-                </div>
-            </div> */}
         </>
     );
 }
