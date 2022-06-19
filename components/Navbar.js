@@ -195,6 +195,7 @@ import NetworkSwitcher from './NetworkSwitcher';
   
                 
                       <p className='py-3 px-2 text-left text-sm font-serif text-gray-800'>Please make sure you&apos;re on Binance Chain</p>
+                      <a target="_blank" rel="noopener noreferrer" href="https://metamask.io" className="py-3 px-2 text-left text-sm font-serif text-blue-500 hover:text-blue-800 cursor-pointer underline ">Get Metamask </a>
 
                     </div>
                      }
