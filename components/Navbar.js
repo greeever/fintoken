@@ -126,7 +126,7 @@ import NetworkSwitcher from './NetworkSwitcher';
        
 
       <div className='ml-3'>
-          <button onClick={openModal} className='border-gray-800 border-2 text-black dark:text-gray-100 bg-inherit text-sm font-semibold p-2 rounded-xl'>{accountData ? 'Account' : 'Connect'}</button>
+          <button onClick={openModal} className='border-gray-800 dark:border-gray-100 border-2 text-black dark:text-gray-100 bg-inherit text-sm font-semibold p-2 rounded-xl'>{accountData ? 'Account' : 'Connect'}</button>
       </div>
       </div>
     </div>
