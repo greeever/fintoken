@@ -81,10 +81,6 @@ const Landing = () => {
 					View Etherscan
                     </a>
                 </div>
-
-
-
-1800000000000000
             </section>
 			
 	
