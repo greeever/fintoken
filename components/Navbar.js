@@ -67,9 +67,14 @@ import NetworkSwitcher from './NetworkSwitcher';
                <img className="w-5 h-5" src="sun.svg" alt="" />
             }
                </div>  */}
-        <div className='hidden md:flex items-center justify-between space-x-10'>
-            <p className='text-black  dark:text-gray-100 '>Twitter</p>
-            <p className='text-black  dark:text-gray-100 '>Telegram</p>
+        <div className='flex items-center justify-between space-x-10'>
+          <a 
+          target="_blank" rel="noopener noreferrer" 
+          href='https://t.me/+Z-8XTH1UPZpkNTdh'
+          >
+            <p className='text-black font-semibold text-lg  dark:text-gray-100 hover:underline'>Telegram</p>
+            </a>
+            {/* <p className='text-black  dark:text-gray-100 '>Telegram</p> */}
             {/* <div className="cursor-pointer ml-4 hidden md:inline-block"
               onClick={() => {
                 console.log('fire')
