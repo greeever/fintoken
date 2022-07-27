@@ -196,7 +196,7 @@ const [isClaimTx, setClaimTx] = useState('');
                            >
                                 <div className='flex items-center justify-between pb-4 px-2 mx-auto'>
                                     <img src='/logo.svg' className='w-5 h-5' />
-                                    <input className='placeholder:pl-4 placeholder:text-black placeholder:dark:text-gray-800 dark:focus:bg-gray-800 bg-gray-200 border-2 border-gray-200 leading-tight focus:outline-none focus:bg-gray-100 appearance-none text-gray-900 placeholder:text-sm placeholder:font-semibold p-3 flex-1 inline-flex text-sm rounded-r-md focus:ring-inset dark:border-gray-700 dark:text-gray-900 dark:bg-gray-800 focus:ring-gray-100 rounded-xl' placeholder='input amount'
+                                    <input className='placeholder:pl-4 placeholder:text-black dark:placeholder:text-gray-800 dark:focus:bg-gray-800 bg-gray-200 border-2 border-gray-200 leading-tight focus:outline-none focus:bg-gray-100 appearance-none text-gray-900 placeholder:text-sm placeholder:font-semibold p-3 flex-1 inline-flex text-sm rounded-r-md focus:ring-inset dark:border-gray-700 dark:text-gray-900 dark:bg-gray-800 focus:ring-gray-100 rounded-xl' placeholder='input amount'
                                      value={isAmount} onChange={(e) =>setAmount(e.target.value)}
                                     />
 
