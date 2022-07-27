@@ -70,9 +70,9 @@ import NetworkSwitcher from './NetworkSwitcher';
         <div className='flex items-center justify-between space-x-10'>
           <a 
           target="_blank" rel="noopener noreferrer" 
-          href='https://t.me/+Z-8XTH1UPZpkNTdh'
+          href='https://t.co/ZhNQzX0bbk?ssr=true'
           >
-            <p className='text-black font-semibold text-lg  dark:text-gray-100 hover:underline'>Telegram</p>
+            <p className='text-black font-semibold text-normal  dark:text-gray-100 hover:underline'>Telegram</p>
             </a>
             {/* <p className='text-black  dark:text-gray-100 '>Telegram</p> */}
             {/* <div className="cursor-pointer ml-4 hidden md:inline-block"
