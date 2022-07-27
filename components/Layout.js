@@ -320,7 +320,7 @@ const [isClaimTx, setClaimTx] = useState('');
                 }
         </div>
 
-        <div className="w-full max-w-md px-2  sm:px-0   mx-auto text-gray-800 dark:text-gray-100 mb-8">
+        <div className="w-full max-w-md px-2  sm:px-0   mx-auto text-gray-800 dark:text-gray-100 mb-8 dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2">
         <div className="flex  justify-between px-4 mb-4">
           <h1 className="text-lg font-semibold">Chase statistics</h1>
           <h2 className="font-normal text-base text-green-900 underline cursor-pointer"></h2>
@@ -330,10 +330,10 @@ const [isClaimTx, setClaimTx] = useState('');
   className="flex items-end justify-between"
 >
   <div>
-    <p className="text-base">Token Name</p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Token Name</p>
   </div>
 
-  <p className="text-base text-green-900">Chase</p>
+  <p className="text-base ttext-gray-800 dark:text-gray-100">Chase</p>
 </article>
 
 
@@ -341,27 +341,27 @@ const [isClaimTx, setClaimTx] = useState('');
   className="flex items-end justify-between pt-3" 
 >
   <div>
-    <p className="text-base ">Token Symbol</p>
-  </div>
-
-<p className="
-text-base text-green-900">Chase</p>
-</article>
-        <article
-  className="flex items-end justify-between pt-3" 
->
-  <div>
-    <p className="text-base ">Token Decimal</p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Token Symbol</p>
   </div>
 
 <p className="
-text-base text-green-900">18</p>
+text-base text-gray-800 dark:text-gray-100">Chase</p>
 </article>
         <article
   className="flex items-end justify-between pt-3" 
 >
   <div>
-    <p className="text-base ">Token Address</p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Token Decimal</p>
+  </div>
+
+<p className="
+text-base text-gray-800 dark:text-gray-100">18</p>
+</article>
+        <article
+  className="flex items-end justify-between pt-3" 
+>
+  <div>
+    <p className="text-base text-gray-800 dark:text-gray-100">Token Address</p>
   </div>
 
 <a
@@ -369,29 +369,29 @@ text-base text-green-900">18</p>
      href='https://bscscan.com/token/0x7e06da6db356bab6d16091f9dc072f3af9c3389f'
 >
 <p className="
-text-base text-green-900 underline">0x7e06...389f</p>
+text-base text-blue-900 underline">0x7e06...389f</p>
 </a>
 </article>
 
-<h1 className="text-lg font-semibold py-4">Other statistics</h1>
+<h1 className="text-lg font-semibold py-4 text-gray-800 dark:text-gray-100">Other statistics</h1>
 
 <article
   className="flex items-end justify-between"
 >
   <div>
-    <p className="text-base">Presale Price </p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Presale Price </p>
   </div>
 
-  <p className="text-base">0.003 chase/ $1</p>
+  <p className="text-base text-gray-800 dark:text-gray-100">0.003 chase/ $1</p>
 </article>
 <article
   className="flex items-end justify-between pt-3"
 >
   <div>
-    <p className="text-base">Listing Price </p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Listing Price </p>
   </div>
 
-  <p className="text-base">0.009 chase/ $1</p>
+  <p className="text-base text-gray-800 dark:text-gray-100">0.009 chase/ $1</p>
 </article>
         </div>
         </div>
