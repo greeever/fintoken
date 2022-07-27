@@ -106,9 +106,9 @@ export default function MyApp({ Component, pageProps }) {
        <Head>
         <title>Chase Finance</title>
       </Head>
-      <ThemeProvider forcedTheme={Component.theme || undefined} attribute="class">
+      {/* <ThemeProvider forcedTheme={Component.theme || undefined} attribute="class"> */}
         <Component {...pageProps} />
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
         </WagmiConfig>
   );
 }

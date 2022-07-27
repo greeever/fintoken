@@ -13,7 +13,7 @@ class MyDocument extends Document {
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Ramaraja&display=swap" rel="stylesheet" />
     </Head>
-        <body className="bg-gray-200 dark:bg-gray-800 text-gray-200 dark:text-gray-600">
+        <body className="bg-gray-200 ">
           <Main />
           <NextScript />
         </body>
