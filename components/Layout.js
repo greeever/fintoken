@@ -246,7 +246,7 @@ const [isClaimTx, setClaimTx] = useState('');
                     <Tab.Panel>
                     <div className=" w-11/12 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800 ">
                 <div className="py-4">
-                    <p className='text-sm font-sans leading-4 font-normal text-center text-gray-800'>Claim rewards here</p>
+                    <p className='text-sm font-sans leading-4 font-normal text-center text-gray-800  dark:text-gray-100'>Claim rewards here</p>
                     <div className="flex  justify-between px-8 pt-3 pb-2 text-gray-800 dark:text-gray-100">
                         <p>Your Referral Count:</p>    
                         <p>  {isReferralCount}</p>
