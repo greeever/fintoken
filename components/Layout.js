@@ -4,6 +4,8 @@ import {ethers, Contract, utils, BigNumber} from 'ethers'
 import {useAccount, useSigner, useProvider} from 'wagmi'
 import { Tab } from '@headlessui/react'
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { toast } from 'react-toastify';
+
 // import CdTimerComp from "./CdTimerComp";
 import Presale from '../abi/Presale.json'
 const IdoAddress = '0x8b3cd5a1e6776ea1c112dfb1b701cd1fcac574a0'
@@ -12,13 +14,13 @@ const IdoAddress = '0x8b3cd5a1e6776ea1c112dfb1b701cd1fcac574a0'
 let texx
 const truncateAddress = (address) => {
     // This help solves the null error
-    if (address == null) return;
+    if (address == null) return '';
     return address.slice(0, 3) + "..." + address.slice(-2);
   };
 //   let provider = new ethers.providers.JsonRpcProvider('https://rpc-mainnet.maticvigil.com/')
 const Layout = () => {
-
-
+    const notify = () => toast("Wow so easy!");
+    
     const { asPath } = useRouter();
     let [isOpen, setIsOpen] = useState(false)
     const [isLoading, setLoading] = useState(false);
@@ -31,6 +33,8 @@ const Layout = () => {
     const [isRate, setRate] = useState(0)
     const [copyAddress, setCopyAddress] = useState(false);
 const [isMessage, setMessage] = useState('')
+const [isTx, setTx] = useState('');
+const [isClaimTx, setClaimTx] = useState('');
     const { data : accountData} = useAccount()
       const { data: signer } = useSigner()
     //   const provider = useProvider()
@@ -43,7 +47,6 @@ const [isMessage, setMessage] = useState('')
         // const chain = await provider.getNetwork()
         // console.log('this is chain', chain.chainId)
         const contract = await new Contract(IdoAddress, Presale.abi, provider);
-        console.log('this is presale read contract', contract);
         const refReward = await contract.referralRewards(accountData?.address)
         const refCount = await contract.referralCount(accountData?.address)
         const buyRate = await contract.rateOfTokensToGivePerEth()
@@ -53,9 +56,6 @@ const [isMessage, setMessage] = useState('')
         setReferralCount( ethers.BigNumber.from(refCount).toNumber())
         setRate( ethers.BigNumber.from(buyRate).toNumber())
         setContribution(utils.formatEther(contribute))
-        console.log(isContribution)
-    
-        console.log('ref count',  ethers.BigNumber.from(refCount).toNumber())
     }
         } catch (error) {
             console.log('this is load presale read error', error)
@@ -86,8 +86,8 @@ const [isMessage, setMessage] = useState('')
 
     async function buy () {
         // if(!provider.getSigner(account)) return null
-            setBuyLoading(true)
         try {
+            setBuyLoading(true)
             let referralAddress =  await asPath.split('#/')[1];
             if (!referralAddress || referralAddress.length !== 42) {
                 referralAddress = '0x0000000000000000000000000000000000000000'
@@ -104,28 +104,28 @@ const [isMessage, setMessage] = useState('')
       
             let response = await contract.buy(referralAddress.toString(),{value: amount});
             let hash = response.hash
-            console.log(hash)
+            setTx(hash)
+            toast.success('Transaction succesful. Check bscscan')
         } 
         catch (error) {
             setBuyLoading(false)
-            console.log('this is buy error',error)
+            toast.error('Error. Something went wrong')
         }
-        setBuyLoading(false)
     }
 
 
     async function claim () {
-        setClaimLoading(true)
         try {
+            setClaimLoading(true)
             const contract = await new Contract(IdoAddress, Presale.abi, signer);
             let response = await contract.withdrawEarnings();
-            toast.success('Sucessful. Check wallet')
-            // let hash = response.hash
+            toast.success('Transaction sucessful. Check wallet')
+            let hash = response.hash
+            setClaimTx(hash)
         } catch (error) {
-            console.log('this is claim error', error)
             toast.error('Transaction Fail. Talk to support ')
+            setClaimLoading(false)
         }
-        setClaimLoading(false)
     }
 
     function calcaPercent() {
@@ -196,7 +196,7 @@ const [isMessage, setMessage] = useState('')
                            >
                                 <div className='flex items-center justify-between pb-4 px-2 mx-auto'>
                                     <img src='/logo.svg' className='w-5 h-5' />
-                                    <input className='placeholder:pl-4 placeholder:text-black placeholder:dark:text-gray-100  bg-gray-200 border-2 border-gray-200 leading-tight focus:outline-none focus:bg-gray-100 appearance-none text-gray-900 placeholder:text-sm placeholder:font-semibold p-3 flex-1 inline-flex text-sm rounded-r-md focus:ring-inset dark:border-gray-700 dark:text-gray-100 dark:bg-gray-800 focus:ring-gray-100 rounded-xl' placeholder='0X'
+                                    <input className='placeholder:pl-4 placeholder:text-gray-500 placeholder:dark:text-gray-100  bg-gray-200 border-2 border-gray-200 leading-tight focus:outline-none focus:bg-gray-100 appearance-none text-gray-900 placeholder:text-sm placeholder:font-normal p-3 flex-1 inline-flex text-sm rounded-r-md focus:ring-inset dark:border-gray-700 dark:text-gray-100 dark:bg-gray-800 focus:ring-gray-100 rounded-xl' placeholder='0'
                                      value={isAmount} onChange={(e) =>setAmount(e.target.value)}
                                     />
 
@@ -213,15 +213,31 @@ const [isMessage, setMessage] = useState('')
                             }
                                {isMessage && <p className='text-red-600 pt-1 text-sm font-sans'>{isMessage} </p>}
                            </form>
+                           
                            <div className='flex justify-end md:justify-center space-x-2 items-center w-10/12 mx-auto py-1'>
                             <p className=' text-gray-500 dark:text-gray-100 text-sm'>Output Amount:</p>
-                            <p className=' text-gray-500 dark:text-gray-100 text-sm'>{estimatedValue}</p>
+                            <p className=' text-gray-500 dark:text-gray-100 text-sm'>{estimatedValue > 0 ? estimatedValue : 0}</p>
                             </div>
 
                            <div className='flex justify-end md:justify-center space-x-2  items-center w-10/12 mx-auto py-1'>
                             <p className='text-gray-500 dark:text-gray-100 text-sm leading-tight'>Minimum:</p>
                             <p className='text-gray-500 dark:text-gray-100 text-sm'>0.1 BNB ~ $25</p>
                             </div>
+                            {isTx &&
+                            <div className='my-3 flex justify-center items-center'>
+                                <a 
+                                    target="_blank" rel="noopener noreferrer" 
+                                href={`https://bscscan.com/tx/${isTx}`}
+                                >
+                                <p className='text-blue-800 underline text-lg font-medium'>View Explorer {truncateAddress(isTx)}
+                                </p>
+                                </a>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-800 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                </svg>
+                            </div>
+                            }
                         </div>
                         </div>
                        
@@ -253,6 +269,21 @@ const [isMessage, setMessage] = useState('')
                     className='px-3 border-2  bg-inherit border-gray-300 dark:border-gray-600 rounded-xl hover:border-gray-500 hover:shadow md:text-sm font-bold font-dmsans text-gray-700 dark:text-gray-100 md:mt-0 mt-4 h-12 flex items-center justify-center  hover:bg-blue-200 hover:dark:bg-gray-600  w-11/12  md:w-1/3 text-center cursor-pointer mx-auto'>Claim</button>)    
                 }
                 </div>
+                {isClaimTx &&
+                            <div className='my-3 flex justify-center items-center'>
+                                <a 
+                                    target="_blank" rel="noopener noreferrer" 
+                                href={`https://bscscan.com/tx/${isClaimTx}`}
+                                >
+                                <p className='text-blue-800 underline text-lg font-medium'>View Explorer {truncateAddress(isClaimTx)}
+                                </p>
+                                </a>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-800 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                </svg>
+                            </div>
+                           }
             </div>
                   </Tab.Panel>
                 </Tab.Panels>
@@ -288,6 +319,83 @@ const [isMessage, setMessage] = useState('')
                 </div>
                 }
         </div>
+
+        <div className="w-full max-w-md px-2  sm:px-0   mx-auto text-gray-800 dark:text-gray-100 mb-8">
+        <div className="flex  justify-between px-4 mb-4">
+          <h1 className="text-lg font-semibold">Chase statistics</h1>
+          <h2 className="font-normal text-base text-green-900 underline cursor-pointer"></h2>
+        </div>
+        <div className="px-4 py-6 mx-auto bg-white  rounded-lg">
+        <article
+  className="flex items-end justify-between"
+>
+  <div>
+    <p className="text-base">Token Name</p>
+  </div>
+
+  <p className="text-base text-green-900">Chase</p>
+</article>
+
+
+        <article
+  className="flex items-end justify-between pt-3" 
+>
+  <div>
+    <p className="text-base ">Token Symbol</p>
+  </div>
+
+<p className="
+text-base text-green-900">Chase</p>
+</article>
+        <article
+  className="flex items-end justify-between pt-3" 
+>
+  <div>
+    <p className="text-base ">Token Decimal</p>
+  </div>
+
+<p className="
+text-base text-green-900">18</p>
+</article>
+        <article
+  className="flex items-end justify-between pt-3" 
+>
+  <div>
+    <p className="text-base ">Token Address</p>
+  </div>
+
+<a
+     target="_blank" rel="noopener noreferrer" 
+     href='https://bscscan.com/token/0x7e06da6db356bab6d16091f9dc072f3af9c3389f'
+>
+<p className="
+text-base text-green-900 underline">0x7e06...389f</p>
+</a>
+</article>
+
+<h1 className="text-lg font-semibold py-4">Other statistics</h1>
+
+<article
+  className="flex items-end justify-between"
+>
+  <div>
+    <p className="text-base">Presale Price </p>
+  </div>
+
+  <p className="text-base">0.003 chase/ $1</p>
+</article>
+<article
+  className="flex items-end justify-between pt-3"
+>
+  <div>
+    <p className="text-base">Listing Price </p>
+  </div>
+
+  <p className="text-base">0.009 chase/ $1</p>
+</article>
+        </div>
+        </div>
+        
         </>
     );
 }

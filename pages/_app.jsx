@@ -17,11 +17,11 @@ import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
 const alchemyId = '6Wrtujs7IW1ekipJjG-uNWY5Fdn01s3d'
-if (alchemyId === undefined) {
-  console.log('this is alchemy error', alchemyId)
-} else {
-  console.log('alchemy is clear', alchemyId)
-}
+// if (alchemyId === undefined) {
+//   console.log('this is alchemy error', alchemyId)
+// } else {
+//   console.log('alchemy is clear', alchemyId)
+// }
 
 const smartChainChain = {
   id: 56,
