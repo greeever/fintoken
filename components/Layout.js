@@ -214,12 +214,12 @@ const [isClaimTx, setClaimTx] = useState('');
                                {isMessage && <p className='text-red-600 pt-1 text-sm font-sans'>{isMessage} </p>}
                            </form>
                            
-                           <div className='flex justify-end md:justify-center space-x-2 items-center w-10/12 mx-auto py-1'>
+                           <div className='flex justify-center space-x-2 items-center w-10/12 mx-auto py-1'>
                             <p className=' text-gray-500 dark:text-gray-100 text-sm'>Output Amount:</p>
                             <p className=' text-gray-500 dark:text-gray-100 text-sm'>{estimatedValue > 0 ? estimatedValue : 0}</p>
                             </div>
 
-                           <div className='flex justify-end md:justify-center space-x-2  items-center w-10/12 mx-auto py-1'>
+                           <div className='flex justify-center space-x-2  items-center w-10/12 mx-auto py-1'>
                             <p className='text-gray-500 dark:text-gray-100 text-sm leading-tight'>Minimum:</p>
                             <p className='text-gray-500 dark:text-gray-100 text-sm'>0.1 BNB ~ $25</p>
                             </div>
@@ -291,7 +291,7 @@ const [isClaimTx, setClaimTx] = useState('');
         </div>
 
 
-        <div className=' w-11/12 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 mt-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800'>
+        <div className=' w-11/12 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 my-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800'>
             <div className="py-4 md:pl-8 text-center md:text-left flex flex-col items-center justify-center">
                 <h1 className='py-3 text-gray-800 dark:text-gray-100'>Referral Code</h1>
                 <p className='py-3 text-gray-800 dark:text-gray-100'>5% token reward when anyone deposit with your link</p>
@@ -320,7 +320,7 @@ const [isClaimTx, setClaimTx] = useState('');
                 }
         </div>
 
-        <div className="w-full max-w-3xl px-2  sm:px-0   mx-auto text-gray-800 dark:text-gray-100 mb-8 dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800">
+        <div className="w-11/12 max-w-3xl px-2  sm:px-0   mx-auto text-gray-800 dark:text-gray-100 mb-8 dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800">
         <div className="flex  justify-between px-4 mb-4">
           <h1 className="text-lg font-semibold">Chase statistics</h1>
           <h2 className="font-normal text-base text-green-900 underline cursor-pointer"></h2>
