@@ -8,12 +8,12 @@ const Landing = () => {
 	const faqsList = [
 		{
 			q: "What is Chase Finance",
-			a: "$CHASE is a Decentralised Autonomous Organisation (DAO) governance that provides the community members the ability to be share holders in the Tokonised Assets e.g NFT. The NFT market is worth over $17B, but the rich takes most share. Chase is changing that by giving power to the people throuhg share ownership of NFTs e.g BoredApe"
+			a: "$CHASE is a Decentralised Autonomous Organisation (DAO) governance that provides the community members the ability to be share holders in the Tokonised Assets e.g NFT. The NFT market is worth over $17B, but the rich take most share. Chase is changing that by giving power to the people through shared ownership of NFTs e.g BoredApe"
 
 		},
 		{
 			q: "What is Chase?",
-			a: "$CHASE is a Decentralised Autonomous Organisation (DAO) governance token on binance smart chain (BEP20). In the third quarter of 2022 the token is to become multichain and is going to be available on blockchains as Ethereum, Tron, Solana."
+			a: "$CHASE is a Decentralised Autonomous Organisation (DAO) governance token on binance smart chain (BEP20). In the fourth quarter of 2022 the token is to become multichain and is going to be available on blockchains like Ethereum, Tron, Solana."
 
 		},
 		{
@@ -146,17 +146,17 @@ const Landing = () => {
 				<div className="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-700">
 					<div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-violet-400">
 						<h3 className="text-xl font-semibold tracking-wide font-sans  text-black dark:text-gray-100">Token Presale </h3>
-						<time className="text-xs tracking-wide uppercase  font-sans  text-black dark:text-gray-100">July 2022</time>
+						<time className="text-xs tracking-wide uppercase  font-sans  text-black dark:text-gray-100">Aug 2022</time>
 						<p className="mt-3 font-sans  text-black dark:text-gray-100">Official release,marketing & sales of $Chase</p>
 					</div>
 					<div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-violet-400">
 						<h3 className="text-xl font-semibold tracking-wide font-sans  text-black dark:text-gray-100">Development & Testing</h3>
-						<time className="text-xs tracking-wide uppercase font-sans  text-black dark:text-gray-100">Aug 2022</time>
+						<time className="text-xs tracking-wide uppercase font-sans  text-black dark:text-gray-100">Sep 2022</time>
 						<p className="mt-3 font-sans  text-black dark:text-gray-100">Chase software development & Testing. </p>
 					</div>
 					<div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-violet-400">
 						<h3 className="text-xl font-semibold tracking-wide font-sans  text-black dark:text-gray-100">Lunch</h3>
-						<time className="text-xs tracking-wide uppercase gg font-sans  text-black dark:text-gray-100">Aug 2022</time>
+						<time className="text-xs tracking-wide uppercase gg font-sans  text-black dark:text-gray-100">Sep 2022</time>
 						<p className="mt-3 font-sans  text-black dark:text-gray-100">Lunch of Chase </p>
 					</div>
 				</div>
