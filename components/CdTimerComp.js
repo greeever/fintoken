@@ -5,7 +5,7 @@ import CountDownTimer from "./CountDownTimer";
 
 const CdTimerComp = () => {
 
-  const THREE_DAYS_IN_MS  = new Date(Date.UTC(2022, 7, 10, 0, 0, 0));
+  const THREE_DAYS_IN_MS  = new Date(Date.UTC(2022, 8, 10, 0, 0, 0));
   const NOW_IN_MS = new Date().getTime();
 
   const dateTimeAfterThreeDays =  THREE_DAYS_IN_MS - NOW_IN_MS;
