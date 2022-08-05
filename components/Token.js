@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-  let copyText = '0x89CF468E629DA4ED45692c10Da6Fe4Acc7E118fe'
+
  
 
 
-const Token = () => {
+const Token = ({copyText}) => {
    
     const {address} = useAccount()
     const [copyAddress, setCopyAddress] = useState(false);

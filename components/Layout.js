@@ -410,7 +410,7 @@ text-base text-blue-900 underline">0x6c89...17f945</p>
   <p className="text-base text-gray-800 dark:text-gray-100">0.009 chase/ $1</p>
 </article>
 
-<Token />
+<Token copyText='0x89CF468E629DA4ED45692c10Da6Fe4Acc7E118f' />
 
         </div>
         </div>
