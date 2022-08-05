@@ -408,7 +408,7 @@ text-base text-blue-900 underline">0x6c89...17f945</p>
   </div>
 
 
-<p className="flex justify-between items-center text-base text-gray-800 dark:text-gray-100 font-mono">
+<p className="flex justify-between items-center text-base text-gray-800 dark:text-gray-100 font-mono py-4">
 <div className='flex items-center space-x-1'>
   <span>0.009</span>
   <span className='w-full'>
