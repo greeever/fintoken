@@ -333,7 +333,7 @@ const [isClaimTx, setClaimTx] = useState('');
         </div>
         <div className="px-4 py-6 mx-auto">
         <article
-  className="flex items-end justify-between"
+  className="flex items-center justify-between"
 >
   <div>
     <p className="text-base text-gray-800 dark:text-gray-100">Token name</p>
@@ -344,7 +344,7 @@ const [isClaimTx, setClaimTx] = useState('');
 
 
         <article
-  className="flex items-end justify-between pt-3" 
+  className="flex items-center justify-between pt-3" 
 >
   <div>
     <p className="text-base font-medium text-gray-800 dark:text-gray-100">Token symbol</p>
@@ -354,7 +354,7 @@ const [isClaimTx, setClaimTx] = useState('');
 text-base text-gray-800 dark:text-gray-100">Chase</p>
 </article>
         <article
-  className="flex items-end justify-between pt-3" 
+  className="flex items-center justify-between pt-3" 
 >
   <div>
     <p className="text-base text-gray-800 dark:text-gray-100">Token decimal</p>
@@ -364,25 +364,33 @@ text-base text-gray-800 dark:text-gray-100">Chase</p>
 text-base text-gray-800 dark:text-gray-100">18</p>
 </article>
         <article
-  className="flex items-end justify-between pt-3" 
+  className="flex items-center justify-between pt-3" 
 >
   <div>
-    <p className="text-base text-gray-800 dark:text-gray-100">Token hash</p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Token Address</p>
   </div>
 
 <a
      target="_blank" rel="noopener noreferrer" 
-     href='https://bscscan.com/tx/0x14ec82679b18d90e350117a213534f559e62c33d2991e3623c5fd199ae582db1'
+     href='https://https://bscscan.com/token/0x89cf468e629da4ed45692c10da6fe4acc7e118fe'
 >
-<p className="
-text-base text-blue-900 underline">0x6c89...17f945</p>
+
+  <div className='flex items-center space-x-1'>
+  <span className='w-full'>
+    <img className='h-5 w-5 md:h-6 md:w-6 ' src='/logo.svg' />
+    </span>
+    <span className="
+text-base text-blue-900 underline">
+  0x89cf4...1118fe
+  </span>
+  </div>
 </a>
 </article>
 
 <h1 className="text-lg font-semibold py-4 text-gray-800 dark:text-gray-100">Other statistics</h1>
 
 <article
-  className="flex items-end justify-between"
+  className="flex items-center justify-between"
 >
   <div>
     <p className="text-base text-gray-800 dark:text-gray-100">Presale price </p>
@@ -401,7 +409,7 @@ text-base text-blue-900 underline">0x6c89...17f945</p>
   
 </article>
 <article
-  className="flex items-end justify-between"
+  className="flex items-center justify-between"
 >
   <div>
     <p className="text-base text-gray-800 dark:text-gray-100 ">Listing price</p>
