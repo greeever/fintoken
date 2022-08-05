@@ -221,7 +221,7 @@ const [isClaimTx, setClaimTx] = useState('');
 
                            <div className='flex justify-center space-x-2  items-center w-10/12 mx-auto py-1'>
                             <p className='text-gray-500 dark:text-gray-100 text-sm leading-tight'>Minimum:</p>
-                            <p className='text-gray-500 dark:text-gray-100 text-sm'>0.1 BNB ~ $25</p>
+                            <p className='text-gray-500 dark:text-gray-100 text-sm'>0.05 BNB ~ $15</p>
                             </div>
                             {isTx &&
                             <div className='my-3 flex justify-center items-center'>
@@ -294,7 +294,7 @@ const [isClaimTx, setClaimTx] = useState('');
         <div className=' w-11/12 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 my-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800'>
             <div className="py-4 md:pl-8 text-center md:text-left flex flex-col items-center justify-center">
                 <h1 className='py-3 text-gray-800 dark:text-gray-100'>Referral Code</h1>
-                <p className='py-3 text-gray-800 dark:text-gray-100'>5% chase reward when anyone deposit with your link</p>
+                <p className='py-3 text-gray-800 dark:text-gray-100'>5% $chase reward when anyone deposit with your link</p>
                 <p className='break-all  py-3 px-3 text-gray-800 dark:text-gray-100'>https://chasefintoken.sale/#/{truncateAddress(accountData.address)}
                 </p> 
             </div>
@@ -330,7 +330,7 @@ const [isClaimTx, setClaimTx] = useState('');
   className="flex items-end justify-between"
 >
   <div>
-    <p className="text-base text-gray-800 dark:text-gray-100">Token Name</p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Token name</p>
   </div>
 
   <p className="text-base ttext-gray-800 dark:text-gray-100">Chase</p>
@@ -341,7 +341,7 @@ const [isClaimTx, setClaimTx] = useState('');
   className="flex items-end justify-between pt-3" 
 >
   <div>
-    <p className="text-base text-gray-800 dark:text-gray-100">Token Symbol</p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Token symbol</p>
   </div>
 
 <p className="
@@ -351,7 +351,7 @@ text-base text-gray-800 dark:text-gray-100">Chase</p>
   className="flex items-end justify-between pt-3" 
 >
   <div>
-    <p className="text-base text-gray-800 dark:text-gray-100">Token Decimal</p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Token decimal</p>
   </div>
 
 <p className="
@@ -361,7 +361,7 @@ text-base text-gray-800 dark:text-gray-100">18</p>
   className="flex items-end justify-between pt-3" 
 >
   <div>
-    <p className="text-base text-gray-800 dark:text-gray-100">Token Hash</p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Token hash</p>
   </div>
 
 <a
@@ -379,15 +379,15 @@ text-base text-blue-900 underline">0x6c89...17f945</p>
   className="flex items-end justify-between"
 >
   <div>
-    <p className="text-base text-gray-800 dark:text-gray-100">Presale Price </p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Presale price </p>
   </div>
 
 
-<p className="text-base text-gray-800 dark:text-gray-100">
+<p className="flex justify-between items-center text-base text-gray-800 dark:text-gray-100">
 <div className='flex items-center space-x-1'>
   <span>0.003</span>
   <span className='w-full'>
-    <img className='h-3 w-3' src='/bnb.svg' />
+    <img className='h-5 w-5 md:h-7 md:w-7 ' src='/bnb.svg' />
     </span>
     </div>
      / $1</p>
@@ -398,7 +398,7 @@ text-base text-blue-900 underline">0x6c89...17f945</p>
   className="flex items-end justify-between pt-3"
 >
   <div>
-    <p className="text-base text-gray-800 dark:text-gray-100">Listing Price </p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Listing price </p>
   </div>
 
   <p className="text-base text-gray-800 dark:text-gray-100">0.009 chase/ $1</p>
