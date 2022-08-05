@@ -8,9 +8,8 @@ import { toast } from 'react-toastify';
 
 // import CdTimerComp from "./CdTimerComp";
 import Presale from '../abi/Presale.json'
-const IdoAddress = '0x8b3cd5a1e6776ea1c112dfb1b701cd1fcac574a0'
-//token 0x3b118415e2E261ea1A62C20eA7f1118fd47FAfB2
-// token bsc 0x187dDc0DCd7bB259E9E9884899383F2a527d7a61
+const IdoAddress = '0x00869E47ab36e5F2672D89080bBF823Fa46fD575'
+// token bsc 0x89CF468E629DA4ED45692c10Da6Fe4Acc7E118fe
 let texx
 const truncateAddress = (address) => {
     // This help solves the null error
@@ -47,6 +46,7 @@ const [isClaimTx, setClaimTx] = useState('');
         // const chain = await provider.getNetwork()
         // console.log('this is chain', chain.chainId)
         const contract = await new Contract(IdoAddress, Presale.abi, provider);
+        console.log('This is contract', contract)
         const refReward = await contract.referralRewards(accountData?.address)
         const refCount = await contract.referralCount(accountData?.address)
         const buyRate = await contract.rateOfTokensToGivePerEth()
@@ -70,7 +70,7 @@ const [isClaimTx, setClaimTx] = useState('');
 
 
 
-    texx = `https://chasefintoken.sale//#/${accountData.address}`
+    texx = `https://chasefintoken.sale/#/${accountData.address}`
     // useEffect(()=>{
 
     //     try {
@@ -92,7 +92,7 @@ const [isClaimTx, setClaimTx] = useState('');
             if (!referralAddress || referralAddress.length !== 42) {
                 referralAddress = '0x0000000000000000000000000000000000000000'
             }
-            if (isAmount < 0.1 ) {
+            if (isAmount < 0.050 ) {
                 setMessage('Amount lower than minimum, minimum 0.1')
             }
             if (referralAddress === accountData?.address) {
@@ -295,7 +295,7 @@ const [isClaimTx, setClaimTx] = useState('');
             <div className="py-4 md:pl-8 text-center md:text-left flex flex-col items-center justify-center">
                 <h1 className='py-3 text-gray-800 dark:text-gray-100'>Referral Code</h1>
                 <p className='py-3 text-gray-800 dark:text-gray-100'>5% chase reward when anyone deposit with your link</p>
-                <p className='break-all  py-3 px-3 text-gray-800 dark:text-gray-100'>https://chasefinance.sale/#/{truncateAddress(accountData.address)}
+                <p className='break-all  py-3 px-3 text-gray-800 dark:text-gray-100'>https://chasefintoken.sale/#/{truncateAddress(accountData.address)}
                 </p> 
             </div>
             {accountData && 
@@ -366,7 +366,7 @@ text-base text-gray-800 dark:text-gray-100">18</p>
 
 <a
      target="_blank" rel="noopener noreferrer" 
-     href='https://bscscan.com/tx/0x6c894dd2343e62d1c2531db76e93f7700df0d029b43e2af7872552057117f945'
+     href='https://bscscan.com/tx/0x14ec82679b18d90e350117a213534f559e62c33d2991e3623c5fd199ae582db1'
 >
 <p className="
 text-base text-blue-900 underline">0x6c89...17f945</p>
@@ -382,7 +382,17 @@ text-base text-blue-900 underline">0x6c89...17f945</p>
     <p className="text-base text-gray-800 dark:text-gray-100">Presale Price </p>
   </div>
 
-  <p className="text-base text-gray-800 dark:text-gray-100">0.003 chase/ $1</p>
+
+<p className="text-base text-gray-800 dark:text-gray-100">
+<div className='flex items-center space-x-1'>
+  <span>0.003</span>
+  <span className='w-full'>
+    <img className='h-3 w-3' src='/bnb.svg' />
+    </span>
+    </div>
+     / $1</p>
+
+  
 </article>
 <article
   className="flex items-end justify-between pt-3"
