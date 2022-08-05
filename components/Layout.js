@@ -372,7 +372,7 @@ text-base text-gray-800 dark:text-gray-100">18</p>
 
 <a
      target="_blank" rel="noopener noreferrer" 
-     href='https://https://bscscan.com/token/0x89cf468e629da4ed45692c10da6fe4acc7e118fe'
+     href='https://bscscan.com/token/0x89cf468e629da4ed45692c10da6fe4acc7e118fe'
 >
 
   <div className='flex items-center space-x-1'>
