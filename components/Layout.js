@@ -104,6 +104,7 @@ const [isClaimTx, setClaimTx] = useState('');
       
             let response = await contract.buy(referralAddress.toString(),{value: amount});
             let hash = response.hash
+            setBuyLoading(false)
             setTx(hash)
             toast.success('Transaction succesful. Check bscscan')
         } 
@@ -121,6 +122,7 @@ const [isClaimTx, setClaimTx] = useState('');
             let response = await contract.withdrawEarnings();
             toast.success('Transaction sucessful. Check wallet')
             let hash = response.hash
+            setClaimLoading(false)
             setClaimTx(hash)
         } catch (error) {
             toast.error('Transaction Fail. Talk to support ')
@@ -341,7 +343,7 @@ const [isClaimTx, setClaimTx] = useState('');
   className="flex items-end justify-between pt-3" 
 >
   <div>
-    <p className="text-base text-gray-800 dark:text-gray-100">Token symbol</p>
+    <p className="text-base font-medium text-gray-800 dark:text-gray-100">Token symbol</p>
   </div>
 
 <p className="
@@ -387,7 +389,7 @@ text-base text-blue-900 underline">0x6c89...17f945</p>
 <div className='flex items-center space-x-1'>
   <span>0.003</span>
   <span className='w-full'>
-    <img className='h-5 w-5 md:h-7 md:w-7 ' src='/bnb.svg' />
+    <img className='h-5 w-5 md:h-7 md:w-7 ' src='/logo.svg' />
     </span>
     </div>
      / $1</p>

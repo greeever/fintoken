@@ -79,7 +79,7 @@ const client = createClient({
     new CoinbaseWalletConnector({
       chains,
       options: {
-        appName: 'chase_finance',
+        appName: 'chase_fintoken',
       },
     }),
     new WalletConnectConnector({
@@ -104,7 +104,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={client}>
        <Head>
-        <title>Chase Finance</title>
+        <title>Chase Fintoken</title>
       </Head>
       <ThemeProvider forcedTheme={Component.theme || undefined} attribute="class">
         <Component {...pageProps} />

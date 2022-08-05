@@ -7,7 +7,7 @@ const Landing = () => {
 
 	const faqsList = [
 		{
-			q: "What is Chase Finance",
+			q: "What is Chase Fintoken",
 			a: "$CHASE is a Decentralised Autonomous Organisation (DAO) governance that provides the community members the ability to be share holders in the Tokonised Assets e.g NFT. The NFT market is worth over $17B, but the rich take most share. Chase is changing that by giving power to the people through shared ownership of NFTs e.g BoredApe"
 
 		},
