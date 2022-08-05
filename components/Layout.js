@@ -322,7 +322,7 @@ const [isClaimTx, setClaimTx] = useState('');
 
         <div className="w-11/12 max-w-3xl px-2  sm:px-0   mx-auto text-gray-800 dark:text-gray-100 mb-8 dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800">
         <div className="flex  justify-between px-4 mb-4">
-          <h1 className="text-lg font-semibold">Chase statistics</h1>
+          <h1 className="text-lg font-semibold font-sans">Chase statistics</h1>
           <h2 className="font-normal text-base text-green-900 underline cursor-pointer"></h2>
         </div>
         <div className="px-4 py-6 mx-auto">
@@ -330,10 +330,10 @@ const [isClaimTx, setClaimTx] = useState('');
   className="flex items-end justify-between"
 >
   <div>
-    <p className="text-base text-gray-800 dark:text-gray-100">Token name</p>
+    <p className="text-base text-gray-800 dark:text-gray-100 font-serif">Token name</p>
   </div>
 
-  <p className="text-base ttext-gray-800 dark:text-gray-100">Chase</p>
+  <p className="text-base ttext-gray-800 dark:text-gray-100 font-mono">Chase</p>
 </article>
 
 
@@ -379,11 +379,11 @@ text-base text-blue-900 underline">0x6c89...17f945</p>
   className="flex items-end justify-between"
 >
   <div>
-    <p className="text-base text-gray-800 dark:text-gray-100">Presale price </p>
+    <p className="text-base text-gray-800 dark:text-gray-100 font-serif">Presale price </p>
   </div>
 
 
-<p className="flex justify-between items-center text-base text-gray-800 dark:text-gray-100">
+<p className="flex justify-between items-center text-base text-gray-800 dark:text-gray-100 font-mono">
 <div className='flex items-center space-x-1'>
   <span>0.003</span>
   <span className='w-full'>
