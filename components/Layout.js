@@ -294,7 +294,7 @@ const [isClaimTx, setClaimTx] = useState('');
         <div className=' w-11/12 bg-gray-100 max-w-3xl mx-auto dark:bg-gray-900 border-gray-300 dark:border-gray-600 border-2 my-8 rounded-xl shadow-lg shadow-gray-200 dark:shadow-gray-800'>
             <div className="py-4 md:pl-8 text-center md:text-left flex flex-col items-center justify-center">
                 <h1 className='py-3 text-gray-800 dark:text-gray-100'>Referral Code</h1>
-                <p className='py-3 text-gray-800 dark:text-gray-100'>5% token reward when anyone deposit with your link</p>
+                <p className='py-3 text-gray-800 dark:text-gray-100'>5% chase reward when anyone deposit with your link</p>
                 <p className='break-all  py-3 px-3 text-gray-800 dark:text-gray-100'>https://chasefinance.sale/#/{truncateAddress(accountData.address)}
                 </p> 
             </div>

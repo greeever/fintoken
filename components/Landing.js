@@ -68,17 +68,24 @@ const Landing = () => {
 					<p className="text-gray-800 font-serif leading-6 text-2xl pt-2">Chase Token</p>
 
 				</div> */}
-                <div className="mt-12 justify-center items-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex">
-				    <button 
+                <div className="mx-auto mt-12 justify-center items-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex">
+				    {/* <button 
 					onClick={connect}
 					className="flex items-center space-x-2  px-10 py-3.5 w-full bg-indigo-600 text-white text-center rounded-md shadow-md sm:w-auto">
 					<p>Enter Presale</p>
 					  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
   <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
 </svg>
-                    </button>
-                    <a target="_blank" rel="noopener noreferrer" href="https://https://repo.sourcify.dev/contracts/full_match/56/0x7e06dA6dB356Bab6d16091f9DC072f3AF9c3389f/" className="px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-indigo-600 hover:shadow block sm:w-auto border-gray-300 dark:border-gray-600">
-					Verified Chase
+                    </button> */}
+				
+                    <a target="_blank" rel="noopener noreferrer" href="https://https://repo.sourcify.dev/contracts/full_match/56/0x7e06dA6dB356Bab6d16091f9DC072f3AF9c3389f/" className="cursor-pointer">
+						<span className='px-10 py-3.5 w-full text-gray-500 text-center border rounded-md duration-300 hover:text-indigo-600 hover:shadow block sm:w-auto border-gray-300 dark:border-gray-600'>
+							<p>Chase Verified </p>
+							<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+</svg>
+						</span>
+					
                     </a>
                 </div>
             </section>
