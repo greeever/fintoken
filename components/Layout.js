@@ -5,6 +5,7 @@ import {useAccount, useSigner, useProvider} from 'wagmi'
 import { Tab } from '@headlessui/react'
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast } from 'react-toastify';
+import Token from './Token';
 
 // import CdTimerComp from "./CdTimerComp";
 import Presale from '../abi/Presale.json'
@@ -408,6 +409,8 @@ text-base text-blue-900 underline">0x6c89...17f945</p>
 
   <p className="text-base text-gray-800 dark:text-gray-100">0.009 chase/ $1</p>
 </article>
+
+<Token />
 
         </div>
         </div>
