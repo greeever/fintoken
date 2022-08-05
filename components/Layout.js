@@ -70,7 +70,7 @@ const [isClaimTx, setClaimTx] = useState('');
 
 
 
-    texx = `https://chasefinance.io#/${accountData.address}`
+    texx = `https://chasefintoken.sale//#/${accountData.address}`
     // useEffect(()=>{
 
     //     try {
@@ -295,7 +295,7 @@ const [isClaimTx, setClaimTx] = useState('');
             <div className="py-4 md:pl-8 text-center md:text-left flex flex-col items-center justify-center">
                 <h1 className='py-3 text-gray-800 dark:text-gray-100'>Referral Code</h1>
                 <p className='py-3 text-gray-800 dark:text-gray-100'>5% token reward when anyone deposit with your link</p>
-                <p className='break-all  py-3 px-3 text-gray-800 dark:text-gray-100'>https://chasefinance.io#/{truncateAddress(accountData.address)}
+                <p className='break-all  py-3 px-3 text-gray-800 dark:text-gray-100'>https://chasefinance.sale/#/{truncateAddress(accountData.address)}
                 </p> 
             </div>
             {accountData && 
@@ -361,15 +361,15 @@ text-base text-gray-800 dark:text-gray-100">18</p>
   className="flex items-end justify-between pt-3" 
 >
   <div>
-    <p className="text-base text-gray-800 dark:text-gray-100">Token Address</p>
+    <p className="text-base text-gray-800 dark:text-gray-100">Token Hash</p>
   </div>
 
 <a
      target="_blank" rel="noopener noreferrer" 
-     href='https://bscscan.com/token/0x7e06da6db356bab6d16091f9dc072f3af9c3389f'
+     href='https://bscscan.com/tx/0x6c894dd2343e62d1c2531db76e93f7700df0d029b43e2af7872552057117f945'
 >
 <p className="
-text-base text-blue-900 underline">0x7e06...389f</p>
+text-base text-blue-900 underline">0x6c89...17f945</p>
 </a>
 </article>
 
