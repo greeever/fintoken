@@ -78,7 +78,7 @@ const Landing = () => {
 </svg>
                     </button> */}
 				
-                    <a target="_blank" rel="noopener noreferrer" href="https://https://repo.sourcify.dev/contracts/full_match/56/0x7e06dA6dB356Bab6d16091f9DC072f3AF9c3389f/" className="cursor-pointer">
+                    <a target="_blank" rel="noopener noreferrer" href="https://repo.sourcify.dev/contracts/full_match/56/0x7e06dA6dB356Bab6d16091f9DC072f3AF9c3389f/" className="cursor-pointer">
 						<span className='flex items-center space-x-2 px-10 py-3.5 w-full text-gray-400 text-center border rounded-md duration-300 hover:text-gray-200 hover:shadow block sm:w-auto border-gray-300 dark:border-gray-600 bg-indigo-600 dark:text-gray-300'>
 							<p>Chase Verified </p>
 							<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
