@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 import Presale from '../abi/Presale.json'
 const IdoAddress = '0x00869E47ab36e5F2672D89080bBF823Fa46fD575'
 // token bsc 0x89CF468E629DA4ED45692c10Da6Fe4Acc7E118fe
-let texx, addx
+let texx
 const truncateAddress = (address) => {
     // This help solves the null error
     if (address == null) return '';
@@ -31,7 +31,6 @@ const Layout = () => {
     const [isContribution, setContribution] = useState(0)
     const [isRate, setRate] = useState(0)
     const [copyAddress, setCopyAddress] = useState(false);
-    const [copyToken, setCopyToken] = useState(false);
 const [isMessage, setMessage] = useState('')
 const [isTx, setTx] = useState('');
 const [isClaimTx, setClaimTx] = useState('');
@@ -71,7 +70,7 @@ const [isClaimTx, setClaimTx] = useState('');
 
 
 
-    addx = '0x89CF468E629DA4ED45692c10Da6Fe4Acc7E118fe'
+    texx = `https://chasefintoken.sale/#/${accountData.address}`
     // useEffect(()=>{
 
     //     try {
@@ -307,7 +306,7 @@ const [isClaimTx, setClaimTx] = useState('');
             {accountData && 
                <div className='flex justify-center mx-auto mb-3'>
                 <CopyToClipboard
-                    text={addx}
+                    text={texx}
                     onCopy={() => {
                       setCopyAddress(true);
                       setTimeout(() => {
@@ -410,22 +409,6 @@ text-base text-blue-900 underline">0x6c89...17f945</p>
   <p className="text-base text-gray-800 dark:text-gray-100">0.009 chase/ $1</p>
 </article>
 
-<div className='flex justify-center mx-auto mb-3'>
-                <CopyToClipboard
-                    text={texx}
-                    onCopy={() => {
-                      setCopyToken(true);
-                      setTimeout(() => {
-                        setCopyToken(false);
-                      }, 10000);
-                    }}
-                  >
-                                   <button className='px-3 border-2  bg-inherit border-gray-300 dark:border-gray-600 rounded-xl hover:border-gray-500 hover:shadow md:text-sm font-bold font-dmsans text-gray-700 dark:text-gray-100 md:mt-0 mt-4 h-12 flex items-center justify-center  hover:bg-blue-200 hover:dark:bg-gray-600  w-11/12  md:w-1/3 text-center cursor-pointer'>{copyToken ? 'copied' : 'copy'}</button>
-                                   :
-                            <p className='text-gray-800 dark:text-gray-100'>Token address</p>
-
-                </CopyToClipboard>
-                </div>
         </div>
         </div>
         
