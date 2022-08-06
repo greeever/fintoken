@@ -55,7 +55,7 @@ const Landing = () => {
                          <span className="text-indigo-600"> NFT & DEFI
 						 <br></br>
 						 </span>
-							tokonised Potfolio Manager.
+							tokonised Portfolio Manager.
                     </h1>
                     <p className="text-black dark:text-gray-500 max-w-xl mx-auto leading-relaxed">
 					We have developed an investment platform that allow users to gain special NFT tokens, the value of which depends on the performance of the NFT e.g Bored Ape NFT
@@ -80,7 +80,7 @@ const Landing = () => {
 				
                     <a target="_blank" rel="noopener noreferrer" href="https://bscscan.com/address/0x89cf468e629da4ed45692c10da6fe4acc7e118fe#code" className="cursor-pointer">
 						<span className='flex items-center space-x-2 px-10 py-3.5 w-full text-gray-200 text-center border rounded-md duration-300 hover:text-gray-100 hover:shadow block sm:w-auto border-gray-300 dark:border-gray-600 bg-indigo-600 dark:text-gray-200'>
-							<p>Chase Verified </p>
+							<p>Chase token Verified </p>
 							<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
   <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
 </svg>
