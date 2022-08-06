@@ -398,13 +398,16 @@ text-base text-blue-900 underline">
 
 
 <p className="flex justify-between items-center text-base text-gray-800 dark:text-gray-100">
-<div className='flex items-center space-x-1'>
+
+     $1 /
+     <div className='flex items-center space-x-1'>
   <span>0.003</span>
   <span className='w-full'>
     <img className='h-5 w-5 md:h-6 md:w-6 ' src='/logo.svg' />
     </span>
     </div>
-     / $1</p>
+     
+     </p>
 
   
 </article>
@@ -417,13 +420,16 @@ text-base text-blue-900 underline">
 
 
 <p className="flex justify-between items-center text-base text-gray-800 dark:text-gray-100 py-4">
-<div className='flex items-center space-x-1'>
+
+     $1 /
+     <div className='flex items-center space-x-1'>
   <span>0.009</span>
   <span className='w-full'>
     <img className='h-5 w-5 md:h-6 md:w-6 ' src='/logo.svg' />
     </span>
     </div>
-     / $1</p>
+     
+     </p>
 
   
 </article>
