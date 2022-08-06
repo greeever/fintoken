@@ -399,7 +399,7 @@ text-base text-blue-900 underline">
 
 <p className="flex justify-between items-center text-base text-gray-800 dark:text-gray-100">
 
-     0.05 bnb /
+     1 bnb /
      <div className='flex items-center space-x-1'>
   <span>10000</span>
   <span className='w-full'>
