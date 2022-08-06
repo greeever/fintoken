@@ -70,7 +70,7 @@ import NetworkSwitcher from './NetworkSwitcher';
         <div className='flex items-center justify-between space-x-10'>
           <a 
           target="_blank" rel="noopener noreferrer" 
-          href='https://t.co/ZhNQzX0bbk?ssr=true'
+          href='https://t.me/+Z-8XTH1UPZpkNTdh'
           >
             <p className='text-black font-semibold text-normal  dark:text-gray-100 hover:underline'>Telegram</p>
             </a>
