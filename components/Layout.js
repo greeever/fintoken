@@ -411,12 +411,12 @@ text-base text-blue-900 underline">
 
   
 </article>
-<article
+{/* <article
   className="flex items-center justify-between"
 >
   <div>
     <p className="text-base text-gray-800 dark:text-gray-100 ">Listing price</p>
-  </div>
+  </div> */}
 
 
 {/* <p className="flex justify-between items-center text-base text-gray-800 dark:text-gray-100 py-4">
@@ -431,8 +431,8 @@ text-base text-blue-900 underline">
      
      </p> */}
 
-  
-</article>
+{/*   
+</article> */}
 
 
 {/* <Token copyText='0x89CF468E629DA4ED45692c10Da6Fe4Acc7E118f' /> */}
