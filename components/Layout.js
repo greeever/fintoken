@@ -227,7 +227,7 @@ const [isClaimTx, setClaimTx] = useState('');
 
                            <div className='flex justify-center space-x-2  items-center w-10/12 mx-auto py-1'>
                             <p className='text-gray-500 dark:text-gray-100 text-sm leading-tight'>Minimum:</p>
-                            <p className='text-gray-500 dark:text-gray-100 text-sm'>0.05 BNB ~ $15</p>
+                            <p className='text-gray-500 dark:text-gray-100 text-sm'>0.05 BNB</p>
                             </div>
                             {isTx &&
                             <div className='my-3 flex justify-center items-center'>
