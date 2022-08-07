@@ -71,7 +71,13 @@ const [isClaimTx, setClaimTx] = useState('');
 
 
 
-    texx = `https://chasefintoken.sale/#/${accountData.address}`
+    texx = `
+    CHASEFINTOKEN
+
+    500 BNB giveaway for top referrers. Connect wallet, copy referral link and share.
+        https://chasefintoken.sale/#/${accountData.address}
+    
+    `
     // useEffect(()=>{
 
     //     try {
